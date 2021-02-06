@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>MA</b>UT',
+    'logo' => '<b>Z</b>LARAVEL',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -236,23 +236,8 @@ return [
         ],
         ['header' => 'Administrator Menu'],
         [
-            'text' => 'Kriteria',
-            'url'  => '/criterias',
-            'icon' => 'fas fa-fw fa-circle',
-        ],
-        [
-            'text' => 'Sub Kriteria',
-            'url'  => '/subcriterias',
-            'icon' => 'fas fa-fw fa-circle',
-        ],
-        [
-            'text' => 'Alternatif',
-            'url'  => '/alternatifs',
-            'icon' => 'fas fa-fw fa-circle',
-        ],
-        [
-            'text' => 'Hasil',
-            'url'  => '/valuations/results',
+            'text' => 'Sample Menu',
+            'url'  => 'sample',
             'icon' => 'fas fa-fw fa-circle',
         ],
     ],
