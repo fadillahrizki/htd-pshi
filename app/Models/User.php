@@ -55,4 +55,8 @@ class User extends Authenticatable
     {
         return 'profile';
     }
+
+    function dataUmums() {
+        return $this->hasMany(DataUmum::class);
+    }
 }

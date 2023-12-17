@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\ValuationController;
 use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\SubcriteriaController;
 
 /*
@@ -24,9 +26,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('home',[HomeController::class,'index'])->name('home');
-Route::resource('criterias', CriteriaController::class);
-Route::resource('subcriterias', SubcriteriaController::class);
-Route::resource('alternatifs', AlternatifController::class);
-Route::get('valuations/results',[ValuationController::class,'results']);
-Route::resource('valuations', ValuationController::class);
+Route::get('logout',[HomeController::class,'logout'])->name('logout');
+Route::get('/',[HomeController::class,'index'])->name('home');
+
+// admin
+Route::match(['get', 'post'], '/account-verification',[AdminController::class,'accountVerification'])->name('account-verification');
+Route::match(['get', 'post'], '/data-verification',[AdminController::class,'dataVerification'])->name('data-verification');
+
+// perusahaan
+Route::match(['get', 'post'], '/data-input',[PerusahaanController::class,'dataInput'])->name('data-input');
