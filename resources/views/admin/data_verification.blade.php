@@ -60,10 +60,10 @@
                                 <td>
                                     @if($dt->status == 'Waiting')
                                         <a href="#" onclick="action(event, {{$dt->id}}, 'verify')" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Verify"> 
-                                            <i class="mdi mdi-file-check"></i>
+                                            <i class="mdi mdi-check"></i>
                                         </a>
                                         <a href="#" onclick="action(event, {{$dt->id}}, 'reject')" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Reject">
-                                            <i class="mdi mdi-file-cancel"></i>
+                                            <i class="mdi mdi-cancel"></i>
                                         </a>
                                     @endif
                                 </td>
