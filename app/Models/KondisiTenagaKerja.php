@@ -26,4 +26,5 @@ class KondisiTenagaKerja extends Model
         'pkwtt' => 'array',
         'penyandang_disabilitas' => 'array',
     ];
+
 }

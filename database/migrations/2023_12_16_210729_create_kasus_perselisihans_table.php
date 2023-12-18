@@ -16,10 +16,10 @@ class CreateKasusPerselisihansTable extends Migration
         Schema::create('kasus_perselisihans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('data_umum_id');
-            $table->string('pemutusan_hubungan_kerja');
-            $table->string('serikat_pekerja_buruh');
-            $table->string('mogok_kerja');
-            $table->string('lock_out');
+            $table->integer('pemutusan_hubungan_kerja');
+            $table->integer('serikat_pekerja_buruh');
+            $table->integer('mogok_kerja');
+            $table->integer('lock_out');
             $table->timestamps();
 
             $table->foreign('data_umum_id')->references('id')->on('data_umums')->onDelete('cascade');    

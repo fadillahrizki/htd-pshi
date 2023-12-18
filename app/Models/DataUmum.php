@@ -38,4 +38,12 @@ class DataUmum extends Model
     function kasusPerselisihan() {
         return $this->hasOne(KasusPerselisihan::class);
     }
+    
+    function fasilitasKeselamatanKesehatanKerja() {
+        return $this->hasOne(FasilitasKeselamatanKesehatanKerja::class);
+    }
+
+    function fasilitasKesejahteraan() {
+        return $this->hasOne(FasilitasKesejahteraan::class);
+    }
 }

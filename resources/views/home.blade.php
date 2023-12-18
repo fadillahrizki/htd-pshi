@@ -28,10 +28,10 @@
             <div class="card widget-flat text-bg-pink">
                 <div class="card-body">
                     <div class="float-end">
-                        <i class="ri-eye-line widget-icon"></i>
+                        <i class="mdi mdi-account-group widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Jumlah Akun</h6>
-                    <h2 class="my-2">8,652</h2>
+                    <h2 class="my-2">{{$userCount}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -40,10 +40,10 @@
             <div class="card widget-flat text-bg-purple">
                 <div class="card-body">
                     <div class="float-end">
-                        <i class="ri-wallet-2-line widget-icon"></i>
+                        <i class="mdi mdi-office-building widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Jumlah Perusahaan</h6>
-                    <h2 class="my-2">$9,254.62</h2>
+                    <h2 class="my-2">{{$perusahaanCount}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -52,10 +52,10 @@
             <div class="card widget-flat text-bg-info">
                 <div class="card-body">
                     <div class="float-end">
-                        <i class="ri-shopping-basket-line widget-icon"></i>
+                        <i class="mdi mdi-office-building-plus widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Jumlah Perusahaan Di Terima</h6>
-                    <h2 class="my-2">753</h2>
+                    <h2 class="my-2">{{$perusahaanVerifiedCount}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -64,10 +64,10 @@
             <div class="card widget-flat text-bg-primary">
                 <div class="card-body">
                     <div class="float-end">
-                        <i class="ri-group-2-line widget-icon"></i>
+                        <i class="mdi mdi-office-building-remove widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Jumlah Perusahaan Di Tolak</h6>
-                    <h2 class="my-2">63,154</h2>
+                    <h2 class="my-2">{{$perusahaanRejectedCount}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -81,7 +81,7 @@
                         <i class="ri-eye-line widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Perjanjian Kerja</h6>
-                    <h2 class="my-2">8,652</h2>
+                    <h2 class="my-2">{{$perjanjianKerja}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -93,7 +93,7 @@
                         <i class="ri-wallet-2-line widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Mogok Kerja</h6>
-                    <h2 class="my-2">$9,254.62</h2>
+                    <h2 class="my-2">{{$mogokKerja}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -105,7 +105,7 @@
                         <i class="ri-wallet-2-line widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">PHK</h6>
-                    <h2 class="my-2">$9,254.62</h2>
+                    <h2 class="my-2">{{$pemutusanHubunganKerja}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -123,7 +123,7 @@
                         <i class="ri-eye-line widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Total Perselisihan Hak</h6>
-                    <h2 class="my-2">8,652</h2>
+                    <h2 class="my-2">{{$totalPemutusanHubunganKerja}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -135,7 +135,7 @@
                         <i class="ri-wallet-2-line widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Total Perselisihan Kepentingan</h6>
-                    <h2 class="my-2">$9,254.62</h2>
+                    <h2 class="my-2">{{$totalPemutusanHubunganKerja}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -147,7 +147,7 @@
                         <i class="ri-wallet-2-line widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Total Perselisihan Pemutusan Hubungan Kerja</h6>
-                    <h2 class="my-2">$9,254.62</h2>
+                    <h2 class="my-2">{{$totalPemutusanHubunganKerja}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
@@ -159,7 +159,7 @@
                         <i class="ri-wallet-2-line widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Total Perselisihan Antara SP/SB dalam satu Perusahaan</h6>
-                    <h2 class="my-2">$9,254.62</h2>
+                    <h2 class="my-2">{{$totalPemutusanHubunganKerja}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->

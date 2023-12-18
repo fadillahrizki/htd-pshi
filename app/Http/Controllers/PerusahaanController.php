@@ -33,6 +33,10 @@ class PerusahaanController extends Controller
 
                     $dataKetenagaKerjaan = $dataUmum->dataKetenagaKerjaan()->create(Arr::except($request->input('data_ketenagakerjaan'), 'sistem_pembayaran_upah'));
                     $sistemPembayaranUpah = $dataKetenagaKerjaan->sistemPembayaranUpah()->create($request->input('data_ketenagakerjaan')['sistem_pembayaran_upah']);
+
+                    $fasilitasKeselamatanKesehatanKerja = $dataUmum->fasilitasKeselamatanKesehatanKerja()->create($request->input('fasilitas_perusahaan')['fasilitas_keselamatan_kesehatan_kerja']);
+
+                    $fasilitasKesejahteraan = $dataUmum->fasilitasKesejahteraan()->create($request->input('fasilitas_perusahaan')['fasilitas_kesejahteraan']);
                     
                     $bpjsKesehatan = $dataUmum->bpjsKesehatan()->create($request->input('bpjs_kesehatan'));
 
@@ -57,7 +61,6 @@ class PerusahaanController extends Controller
 
                     $kondisiTenagaKerja = $perangkatHubunganIndustri->kondisiTenagaKerja()->create($dataKondisiTenagaKerja->toArray());
 
-                    
                     $pelaksanaanCuti = $dataUmum->pelaksanaanCuti()->create($request->input('pelaksanaan_cuti'));
 
                     $kasusPerselisihan = $dataUmum->kasusPerselisihan()->create($request->input('kasus_perselisihan'));

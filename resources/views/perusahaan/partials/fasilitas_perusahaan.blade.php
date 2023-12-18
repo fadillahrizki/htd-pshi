@@ -1,8 +1,24 @@
 @php
 
     $fasilitas_perusahaan = [
-        'fasilitas_keselamatan_kesehatan_kerja' => old('fasilitas_perusahaan')['fasilitas_keselamatan_kesehatan_kerja'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_keselamatan_kesehatan_kerja'] ?? '' ),
-        'fasilitas_kesejahteraan' => old('fasilitas_perusahaan')['fasilitas_kesejahteraan'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_kesejahteraan'] ?? '' ),
+        'fasilitas_keselamatan_kesehatan_kerja' => [
+            'peralatanan_perlindungan' => old('fasilitas_perusahaan')['fasilitas_keselamatan_kesehatan_kerja']['peralatanan_perlindungan'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_keselamatan_kesehatan_kerja']['peralatanan_perlindungan'] ?? '' ),
+            'penyelenggaraan_makanan' => old('fasilitas_perusahaan')['fasilitas_keselamatan_kesehatan_kerja']['penyelenggaraan_makanan'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_keselamatan_kesehatan_kerja']['penyelenggaraan_makanan'] ?? '' ),
+            'pelayanan_kesehatan' => old('fasilitas_perusahaan')['fasilitas_keselamatan_kesehatan_kerja']['pelayanan_kesehatan'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_keselamatan_kesehatan_kerja']['pelayanan_kesehatan'] ?? '' ),
+            'ruang_pk3' => old('fasilitas_perusahaan')['fasilitas_keselamatan_kesehatan_kerja']['ruang_pk3'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_keselamatan_kesehatan_kerja']['ruang_pk3'] ?? '' ),
+            'kotak_p3k' => old('fasilitas_perusahaan')['fasilitas_keselamatan_kesehatan_kerja']['kotak_p3k'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_keselamatan_kesehatan_kerja']['kotak_p3k'] ?? '' ),
+            'alat_pelindung_diri' => old('fasilitas_perusahaan')['fasilitas_keselamatan_kesehatan_kerja']['alat_pelindung_diri'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_keselamatan_kesehatan_kerja']['alat_pelindung_diri'] ?? '' ),
+            'penanganan_limbah' => old('fasilitas_perusahaan')['fasilitas_keselamatan_kesehatan_kerja']['penanganan_limbah'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_keselamatan_kesehatan_kerja']['penanganan_limbah'] ?? '' ),
+        ],
+        'fasilitas_kesejahteraan' => [
+            'perumahan_pekerja' => old('fasilitas_perusahaan')['fasilitas_kesejahteraan']['perumahan_pekerja'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_kesejahteraan']['perumahan_pekerja'] ?? '' ),    
+            'fasilitas_ibadah' => old('fasilitas_perusahaan')['fasilitas_kesejahteraan']['fasilitas_ibadah'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_kesejahteraan']['fasilitas_ibadah'] ?? '' ),    
+            'fasilitas_untuk_disabilitas' => old('fasilitas_perusahaan')['fasilitas_kesejahteraan']['fasilitas_untuk_disabilitas'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_kesejahteraan']['fasilitas_untuk_disabilitas'] ?? '' ),    
+            'koperasi' => old('fasilitas_perusahaan')['fasilitas_kesejahteraan']['koperasi'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_kesejahteraan']['koperasi'] ?? '' ),    
+            'fasilitas_laktasi' => old('fasilitas_perusahaan')['fasilitas_kesejahteraan']['fasilitas_laktasi'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_kesejahteraan']['fasilitas_laktasi'] ?? '' ),    
+            'ruang_merokok' => old('fasilitas_perusahaan')['fasilitas_kesejahteraan']['ruang_merokok'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_kesejahteraan']['ruang_merokok'] ?? '' ),    
+            'armada_antar_jemput' => old('fasilitas_perusahaan')['fasilitas_kesejahteraan']['armada_antar_jemput'] ?? (session('data_input')['fasilitas_perusahaan']['fasilitas_kesejahteraan']['armada_antar_jemput'] ?? '' ),    
+        ]
     ];
 
 @endphp
@@ -13,31 +29,31 @@
             <label class="col-md-3 col-form-label">Fasilitas Keselamatan dan Kesehatan Kerja</label>
             <div class="col-md-9">
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_keselamatan_kesehatan_kerja_opt1" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja]" class="form-check-input" value="Peralatan Perlindungan" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja'] == 'Peralatan Perlindungan') checked @endif>
+                    <input type="checkbox" id="fasilitas_keselamatan_kesehatan_kerja_opt1" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja][peralatanan_perlindungan]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja']['peralatanan_perlindungan'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_keselamatan_kesehatan_kerja_opt1">Peralatan Perlindungan</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_keselamatan_kesehatan_kerja_opt2" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja]" class="form-check-input" value="Penyelenggaraan Makanan" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja'] == 'Penyelenggaraan Makanan') checked @endif>
+                    <input type="checkbox" id="fasilitas_keselamatan_kesehatan_kerja_opt2" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja][penyelenggaraan_makanan]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja']['penyelenggaraan_makanan'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_keselamatan_kesehatan_kerja_opt2">Penyelenggaraan Makanan</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_keselamatan_kesehatan_kerja_opt3" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja]" class="form-check-input" value="Pelayanan Kesehatan" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja'] == 'Pelayanan Kesehatan') checked @endif>
+                    <input type="checkbox" id="fasilitas_keselamatan_kesehatan_kerja_opt3" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja][pelayanan_kesehatan]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja']['pelayanan_kesehatan'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_keselamatan_kesehatan_kerja_opt3">Pelayanan Kesehatan</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_keselamatan_kesehatan_kerja_opt4" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja]" class="form-check-input" value="Ruang PK3" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja'] == 'Ruang PK3') checked @endif>
+                    <input type="checkbox" id="fasilitas_keselamatan_kesehatan_kerja_opt4" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja][ruang_pk3]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja']['ruang_pk3'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_keselamatan_kesehatan_kerja_opt4">Ruang PK3</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_keselamatan_kesehatan_kerja_opt5" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja]" class="form-check-input" value="Kotak P3K" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja'] == 'Kotak P3K') checked @endif>
+                    <input type="checkbox" id="fasilitas_keselamatan_kesehatan_kerja_opt5" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja][kotak_p3k]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja']['kotak_p3k'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_keselamatan_kesehatan_kerja_opt5">Kotak P3K</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_keselamatan_kesehatan_kerja_opt6" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja]" class="form-check-input" value="Alat Pelindung Diri" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja'] == 'Alat Pelindung Diri') checked @endif>
+                    <input type="checkbox" id="fasilitas_keselamatan_kesehatan_kerja_opt6" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja][alat_pelindung_diri]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja']['alat_pelindung_diri'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_keselamatan_kesehatan_kerja_opt6">Alat Pelindung Diri</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_keselamatan_kesehatan_kerja_opt7" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja]" class="form-check-input" value="Penanganan Limbah" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja'] == 'Penanganan Limbah') checked @endif>
+                    <input type="checkbox" id="fasilitas_keselamatan_kesehatan_kerja_opt7" name="fasilitas_perusahaan[fasilitas_keselamatan_kesehatan_kerja][penanganan_limbah]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_keselamatan_kesehatan_kerja']['penanganan_limbah'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_keselamatan_kesehatan_kerja_opt7">Penanganan Limbah</label>
                 </div>
             </div>
@@ -47,31 +63,31 @@
             <label class="col-md-3 col-form-label">Fasilitas Kesejahteraan</label>
             <div class="col-md-9">
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_kesejahteraan_opt1" name="fasilitas_perusahaan[fasilitas_kesejahteraan]" class="form-check-input" value="Perumahan Pekerja" @if($fasilitas_perusahaan['fasilitas_kesejahteraan'] == 'Perumahan Pekerja') checked @endif>
+                    <input type="checkbox" id="fasilitas_kesejahteraan_opt1" name="fasilitas_perusahaan[fasilitas_kesejahteraan][perumahan_pekerja]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_kesejahteraan']['perumahan_pekerja'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_kesejahteraan_opt1">Perumahan Pekerja</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_kesejahteraan_opt2" name="fasilitas_perusahaan[fasilitas_kesejahteraan]" class="form-check-input" value="Fasilitas Ibadah" @if($fasilitas_perusahaan['fasilitas_kesejahteraan'] == 'Fasilitas Ibadah') checked @endif>
+                    <input type="checkbox" id="fasilitas_kesejahteraan_opt2" name="fasilitas_perusahaan[fasilitas_kesejahteraan][fasilitas_ibadah]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_kesejahteraan']['fasilitas_ibadah'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_kesejahteraan_opt2">Fasilitas Ibadah</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_kesejahteraan_opt3" name="fasilitas_perusahaan[fasilitas_kesejahteraan]" class="form-check-input" value="Fasilitas untuk Disabilitas" @if($fasilitas_perusahaan['fasilitas_kesejahteraan'] == 'Fasilitas untuk Disabilitas') checked @endif>
+                    <input type="checkbox" id="fasilitas_kesejahteraan_opt3" name="fasilitas_perusahaan[fasilitas_kesejahteraan][fasilitas_untuk_disabilitas]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_kesejahteraan']['fasilitas_untuk_disabilitas'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_kesejahteraan_opt3">Fasilitas untuk Disabilitas</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_kesejahteraan_opt4" name="fasilitas_perusahaan[fasilitas_kesejahteraan]" class="form-check-input" value="Koperasi" @if($fasilitas_perusahaan['fasilitas_kesejahteraan'] == 'Koperasi') checked @endif>
+                    <input type="checkbox" id="fasilitas_kesejahteraan_opt4" name="fasilitas_perusahaan[fasilitas_kesejahteraan][koperasi]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_kesejahteraan']['koperasi'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_kesejahteraan_opt4">Koperasi</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_kesejahteraan_opt5" name="fasilitas_perusahaan[fasilitas_kesejahteraan]" class="form-check-input" value="Fasilitas Laktasi" @if($fasilitas_perusahaan['fasilitas_kesejahteraan'] == 'Fasilitas Laktasi') checked @endif>
+                    <input type="checkbox" id="fasilitas_kesejahteraan_opt5" name="fasilitas_perusahaan[fasilitas_kesejahteraan][fasilitas_laktasi]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_kesejahteraan']['fasilitas_laktasi'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_kesejahteraan_opt5">Fasilitas Laktasi</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_kesejahteraan_opt6" name="fasilitas_perusahaan[fasilitas_kesejahteraan]" class="form-check-input" value="Ruang Merokok" @if($fasilitas_perusahaan['fasilitas_kesejahteraan'] == 'Ruang Merokok') checked @endif>
+                    <input type="checkbox" id="fasilitas_kesejahteraan_opt6" name="fasilitas_perusahaan[fasilitas_kesejahteraan][ruang_merokok]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_kesejahteraan']['ruang_merokok'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_kesejahteraan_opt6">Ruang Merokok</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="fasilitas_kesejahteraan_opt7" name="fasilitas_perusahaan[fasilitas_kesejahteraan]" class="form-check-input" value="Armada Antar Jemput" @if($fasilitas_perusahaan['fasilitas_kesejahteraan'] == 'Armada Antar Jemput') checked @endif>
+                    <input type="checkbox" id="fasilitas_kesejahteraan_opt7" name="fasilitas_perusahaan[fasilitas_kesejahteraan][armada_antar_jemput]" class="form-check-input" @if($fasilitas_perusahaan['fasilitas_kesejahteraan']['armada_antar_jemput'] == 'on') checked @endif>
                     <label class="form-check-label" for="fasilitas_kesejahteraan_opt7">Armada Antar Jemput</label>
                 </div>
             </div>

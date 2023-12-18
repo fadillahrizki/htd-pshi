@@ -14,4 +14,8 @@ class PerangkatHubunganIndustri extends Model
     function kondisiTenagaKerja() {
         return $this->hasOne(KondisiTenagaKerja::class);
     }
+
+    function dataUmum() {
+        return $this->belongsTo(DataUmum::class);
+    }
 }
