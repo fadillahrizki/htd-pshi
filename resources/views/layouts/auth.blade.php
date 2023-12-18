@@ -12,7 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo-tanjung-balai.png') }}">
 
     <!-- Theme Config Js -->
     <script src="{{ asset('assets/js/config.js') }}"></script>
@@ -30,7 +30,7 @@
 
     <footer class="footer footer-alt fw-medium">
         <span class="text-dark">
-            <script>document.write(new Date().getFullYear())</script> © Velonic - Theme by Techzaa
+            <script>document.write(new Date().getFullYear())</script> © DISNAKER TANJUNG BALAI
         </span>
     </footer>
     <!-- Vendor js -->

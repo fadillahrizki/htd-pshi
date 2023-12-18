@@ -14,18 +14,17 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex flex-column h-100">
-                                <div class="auth-brand p-4">
-                                    <a href="index.html" class="logo-light">
-                                        <img src="assets/images/logo.png" alt="logo" height="22">
+                                <div class="auth-brand p-4 text-center">
+                                    <a href="" class="logo-light">
+                                        <img src="{{ asset('assets/images/logo-tanjung-balai.png') }}" alt="logo" width="100px">
                                     </a>
-                                    <a href="index.html" class="logo-dark">
-                                        <img src="assets/images/logo-dark.png" alt="dark logo" height="22">
+                                    <a href="" class="logo-dark">
+                                        <img src="{{ asset('assets/images/logo-tanjung-balai.png') }}" alt="dark logo" width="100px">
                                     </a>
                                 </div>
                                 <div class="p-4 my-auto">
-                                    <h4 class="fs-20">Free Sign Up</h4>
-                                    <p class="text-muted mb-3">Enter your email address and password to access
-                                        account.</p>
+                                    <h4 class="fs-20">Mendaftar</h4>
+                                    <p class="text-muted mb-3">Dinas Ketenagakerjaan Kota Tanjung Balai</p>
 
                                     @if(session()->get('status') == 'success')
                                         <div class="alert alert-success" role="alert">
@@ -44,7 +43,7 @@
                                         @csrf
 
                                         <div class="mb-3">
-                                            <label for="fullname" class="form-label">Full Name</label>
+                                            <label for="fullname" class="form-label">Nama Perusahaan</label>
                                             <input name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" id="fullname"
                                                 placeholder="Enter your name" required="" value="{{ old('name') }}">
 
@@ -55,8 +54,8 @@
                                             @endif
                                         </div>
                                         <div class="mb-3">
-                                            <label for="emailaddress" class="form-label">Email address</label>
-                                            <input name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" id="emailaddress" required="" placeholder="Enter your email" value="{{ old('email') }}">
+                                            <label for="emailaddress" class="form-label">Email</label>
+                                            <input name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" id="emailaddress" required="" placeholder="Masukan email" value="{{ old('email') }}">
 
                                             @if($errors->has('email'))
                                                 <div class="invalid-feedback">
@@ -65,9 +64,9 @@
                                             @endif
                                         </div>
                                         <div class="mb-3">
-                                            <label for="password" class="form-label">Password</label>
+                                            <label for="password" class="form-label">Kata Sandi</label>
                                             <input name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" required="" id="password"
-                                                placeholder="Enter your password">
+                                                placeholder="Masukan kata sandi">
 
                                             @if($errors->has('password'))
                                                 <div class="invalid-feedback">
@@ -76,9 +75,9 @@
                                             @endif
                                         </div>
                                         <div class="mb-3">
-                                            <label for="password_confirmation" class="form-label">Password Confirmation</label>
+                                            <label for="password_confirmation" class="form-label">Ulangi Kata Sandi</label>
                                             <input name="password_confirmation" class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" type="password" required="" id="password_confirmation"
-                                                placeholder="Enter your password confirmation">
+                                                placeholder="Masukan kata sandi">
 
                                             @if($errors->has('password_confirmation'))
                                                 <div class="invalid-feedback">
@@ -90,29 +89,13 @@
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input"
                                                     id="checkbox-signup">
-                                                <label class="form-check-label" for="checkbox-signup">I accept <a
-                                                        href="javascript: void(0);" class="text-muted">Terms and
-                                                        Conditions</a></label>
+                                                <label class="form-check-label" for="checkbox-signup">Saya menyetujui peraturan yang berlaku</a></label>
                                             </div>
                                         </div>
                                         <div class="mb-0 d-grid text-center">
-                                            <button class="btn btn-primary fw-semibold" type="submit">Sign
-                                                Up</button>
+                                            <button class="btn btn-primary fw-semibold" type="submit">Submit</button>
                                         </div>
 
-                                        <div class="text-center mt-4">
-                                            <p class="text-muted fs-16">Sign in with</p>
-                                            <div class="d-flex gap-2 justify-content-center mt-3">
-                                                <a href="javascript: void(0);" class="btn btn-soft-primary"><i
-                                                        class="ri-facebook-circle-fill"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-soft-danger"><i
-                                                        class="ri-google-fill"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-soft-info"><i
-                                                        class="ri-twitter-fill"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-soft-dark"><i
-                                                        class="ri-github-fill"></i></a>
-                                            </div>
-                                        </div>
                                     </form>
                                     <!-- end form-->
                                 </div>
@@ -125,8 +108,8 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <p class="text-dark-emphasis">Already have account? <a href="{{route('login')}}"
-                        class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Log In</b></a>
+                <p class="text-dark-emphasis">Sudah memiliki akun? <a href="{{route('login')}}"
+                        class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Masuk</b></a>
                 </p>
             </div> <!-- end col -->
         </div>

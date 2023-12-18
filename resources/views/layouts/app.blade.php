@@ -14,7 +14,7 @@
     <meta content="Techzaa" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo-tanjung-balai.png') }}">
 
     <!-- Daterangepicker css -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/daterangepicker/daterangepicker.css') }}">
@@ -59,23 +59,13 @@
                     <!-- Topbar Brand Logo -->
                     <div class="logo-topbar">
                         <!-- Logo light -->
-                        <a href="index.html" class="logo-light">
-                            <span class="logo-lg">
-                                <img src="assets/images/logo.png" alt="logo">
-                            </span>
-                            <span class="logo-sm">
-                                <img src="assets/images/logo-sm.png" alt="small logo">
-                            </span>
+                        <a href="{{url('/')}}" class="logo-light">
+                            <img src="assets/images/logo-tanjung-balai.png" width="100px" alt="logo">
                         </a>
 
                         <!-- Logo Dark -->
-                        <a href="index.html" class="logo-dark">
-                            <span class="logo-lg">
-                                <img src="assets/images/logo-dark.png" alt="dark logo">
-                            </span>
-                            <span class="logo-sm">
-                                <img src="assets/images/logo-sm.png" alt="small logo">
-                            </span>
+                        <a href="{{url('/')}}" class="logo-dark">
+                            <img src="assets/images/logo-tanjung-balai.png" alt="small logo">
                         </a>
                     </div>
 
@@ -449,22 +439,17 @@
         <div class="leftside-menu">
 
             <!-- Brand Logo Light -->
-            <a href="index.html" class="logo logo-light">
-                <span class="logo-lg">
-                    <img src="assets/images/logo.png" alt="logo">
-                </span>
-                <span class="logo-sm">
-                    <img src="assets/images/logo-sm.png" alt="small logo">
-                </span>
+            <a href="{{url('/')}}" class="logo logo-light mt-2">
+                <img src="assets/images/logo-tanjung-balai.png" alt="logo" width="100px">
             </a>
 
             <!-- Brand Logo Dark -->
-            <a href="index.html" class="logo logo-dark">
+            <a href="{{url('/')}}" class="logo logo-dark">
                 <span class="logo-lg">
                     <img src="assets/images/logo-dark.png" alt="dark logo">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo-sm.png" alt="small logo">
+                    <img src="assets/images/logo-tanjung-balai.png" alt="small logo">
                 </span>
             </a>
 
@@ -489,7 +474,7 @@
                         <a href="{{route('account-verification')}}" class="side-nav-link">
                             <i class="mdi mdi-account-multiple-check"></i>
                             <!-- <span class="badge bg-success float-end">9+</span> -->
-                            <span> Account Verification </span>
+                            <span> Data Akun </span>
                         </a>
                     </li>
 
@@ -497,7 +482,7 @@
                         <a href="{{route('data-verification')}}" class="side-nav-link">
                             <i class="mdi mdi-file-check"></i>
                             <!-- <span class="badge bg-success float-end">9+</span> -->
-                            <span> Data Verification </span>
+                            <span> Data Perusahaan </span>
                         </a>
                     </li>
 
@@ -507,7 +492,7 @@
                         <a href="{{route('data-input')}}" class="side-nav-link">
                             <i class="mdi mdi-file"></i>
                             <!-- <span class="badge bg-success float-end">9+</span> -->
-                            <span> Data Input </span>
+                            <span> Data Perushaan </span>
                         </a>
                     </li>
 
@@ -538,7 +523,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <script>document.write(new Date().getFullYear())</script> © Velonic - Theme by <b>Techzaa</b>
+                            <script>document.write(new Date().getFullYear())</script> © DISNAKER TANJUNG BALAI
                         </div>
                     </div>
                 </div>
