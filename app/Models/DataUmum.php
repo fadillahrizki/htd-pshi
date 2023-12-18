@@ -15,35 +15,35 @@ class DataUmum extends Model
         return $this->belongsTo(User::class);
     }
 
-    function dataKetenagakerjaan() {
+    function data_ketenagakerjaan() {
         return $this->hasOne(DataKetenagakerjaan::class);
     }
 
-    function bpjsKesehatan() {
+    function bpjs_kesehatan() {
         return $this->hasOne(BpjsKesehatan::class);
     }
 
-    function bpjsKetenagakerjaan() {
+    function bpjs_ketenagakerjaan() {
         return $this->hasOne(BpjsKetenagakerjaan::class);
     }
 
-    function perangkatHubunganIndustri() {
+    function perangkat_hubungan_industri() {
         return $this->hasOne(PerangkatHubunganIndustri::class);
     }
     
-    function pelaksanaanCuti() {
+    function pelaksanaan_cuti() {
         return $this->hasOne(PelaksanaanCuti::class);
     }
 
-    function kasusPerselisihan() {
+    function kasus_perselisihan() {
         return $this->hasOne(KasusPerselisihan::class);
     }
     
-    function fasilitasKeselamatanKesehatanKerja() {
+    function fasilitas_keselamatan_kesehatan_kerja() {
         return $this->hasOne(FasilitasKeselamatanKesehatanKerja::class);
     }
 
-    function fasilitasKesejahteraan() {
+    function fasilitas_kesejahteraan() {
         return $this->hasOne(FasilitasKesejahteraan::class);
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Data Input')
+@section('title', 'Data Perusahaan')
 
 @section('content')
 
@@ -32,11 +32,12 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Velonic</a></li>
-                        <li class="breadcrumb-item active">Data Input</li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dinas Ketenagakerjaan Kota Tanjung Balai</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('office.index')}}">Data Perusahaan</a></li>
+                        <li class="breadcrumb-item active">{{request()->routeIs('office.create') ? 'Tambah Data' : 'Detail'}}</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Data Input</h4>
+                <h4 class="page-title">Data Perusahaan</h4>
             </div>
         </div>
     </div>
@@ -45,6 +46,29 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                @if(request()->routeIs('office.view') && auth()->user()->role == 'Admin')
+
+                    <div class="card-header">
+
+                        @if($dataUmum->status == 'Waiting')
+                        <a href="#" onclick="action(event, {{$dataUmum->id}}, 'verify')" class="btn btn-success"> 
+                            <i class="mdi mdi-check"></i>
+                            <span class="ml-2">Terima</span>
+                        </a>
+                        <a href="#" onclick="action(event, {{$dataUmum->id}}, 'reject')" class="btn btn-danger">
+                            <i class="mdi mdi-cancel"></i>
+                            <span class="ml-2">Tolak</span>
+                        </a>
+                        @endif
+                        
+                        <a href="#" onclick="action(event, {{$dataUmum->id}}, 'delete')" class="btn btn-danger">
+                            <i class="mdi mdi-delete"></i>
+                            <span class="ml-2">Hapus</span>
+                        </a>
+                        
+                    </div>
+
+                @endif
                 <div class="card-body">
 
                     @if(session()->get('status') == 'success')
@@ -58,7 +82,7 @@
                         </div>
                     @endif
 
-                    <form submitForm="{{route('data-input')}}" method="post" id="form">
+                    <form action="{{route('office.store')}}" method="post" id="form-main">
                         @csrf
 
                         <input type="hidden" name="type">
@@ -102,9 +126,12 @@
                                     @include('perusahaan.partials.data_umum')
 
                                     <ul class="list-inline wizard mb-0">
+                                        @if(request()->routeIs('office.create'))
                                         <li class="list-inline-item">
                                             <button type="button" class="btn btn-success" onclick="submitForm('save')">Simpan <i class="mdi mdi-content-save ms-1"></i></button>
                                         </li>
+                                        @endif
+
                                         <li class="next list-inline-item">
                                             <a href="javascript:void(0);" class="btn btn-info">Selanjutnya <i class="ri-arrow-right-line ms-1"></i></a>
                                         </li>
@@ -120,9 +147,11 @@
                                         <li class="previous list-inline-item">
                                             <button type="button" class="btn btn-light"><i class="ri-arrow-left-line me-1"></i> Sebelumnya</button>
                                         </li>
+                                        @if(request()->routeIs('office.create'))
                                         <li class="list-inline-item">
                                             <button type="button" class="btn btn-success" onclick="submitForm('save')">Simpan <i class="mdi mdi-content-save ms-1"></i></button>
                                         </li>
+                                        @endif
                                         <li class="next list-inline-item">
                                             <button type="button" class="btn btn-info">Selanjutnya <i class="ri-arrow-right-line ms-1"></i></button>
                                         </li>
@@ -138,9 +167,11 @@
                                         <li class="previous list-inline-item">
                                             <button type="button" class="btn btn-light"><i class="ri-arrow-left-line me-1"></i> Sebelumnya</button>
                                         </li>
+                                        @if(request()->routeIs('office.create'))
                                         <li class="list-inline-item">
                                             <button type="button" class="btn btn-success" onclick="submitForm('save')">Simpan <i class="mdi mdi-content-save ms-1"></i></button>
                                         </li>
+                                        @endif
                                         <li class="next list-inline-item">
                                             <button type="button" class="btn btn-info">Selanjutnya <i class="ri-arrow-right-line ms-1"></i></button>
                                         </li>
@@ -156,9 +187,11 @@
                                         <li class="previous list-inline-item">
                                             <button type="button" class="btn btn-light"><i class="ri-arrow-left-line me-1"></i> Sebelumnya</button>
                                         </li>
+                                        @if(request()->routeIs('office.create'))
                                         <li class="list-inline-item">
                                             <button type="button" class="btn btn-success" onclick="submitForm('save')">Simpan <i class="mdi mdi-content-save ms-1"></i></button>
                                         </li>
+                                        @endif
                                         <li class="next list-inline-item">
                                             <button type="button" class="btn btn-info">Selanjutnya <i class="ri-arrow-right-line ms-1"></i></button>
                                         </li>
@@ -185,12 +218,14 @@
                                         <li class="previous list-inline-item">
                                             <button type="button" class="btn btn-light"><i class="ri-arrow-left-line me-1"></i> Sebelumnya</button>
                                         </li>
+                                        @if(request()->routeIs('office.create'))
                                         <li class="list-inline-item">
                                             <button type="button" class="btn btn-success" onclick="submitForm('save')">Simpan <i class="mdi mdi-content-save ms-1"></i></button>
                                         </li>
                                         <li class="list-inline-item">
                                             <button type="button" data-bs-toggle="modal" data-bs-target="#info-alert-modal" class="btn btn-info">Submit <i class="mdi mdi-content-save-check ms-1"></i></button>
                                         </li>
+                                        @endif
                                     </ul>
                                 </div>
 
@@ -206,13 +241,29 @@
 </div>
 <!-- container -->
 
+<form id="form" method="POST" style="display: none;">
+    {{ csrf_field() }}
+    <input type="hidden" name="id">
+    <input type="hidden" name="type">
+</form>
+
 @stop
 
 @section('js')
 
 <script>
+    function action(event, id, type) {
+        event.preventDefault()
+
+        var form = document.getElementById('form')
+        form['id'].value = id
+        form['type'].value = type
+        form.submit()
+        
+    }
+
     function submitForm(type) {
-        var form = document.getElementById("form")
+        var form = document.getElementById('form-main')
         form['type'].value = type
         form.submit()
     }

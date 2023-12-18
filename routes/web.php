@@ -29,9 +29,11 @@ Auth::routes();
 Route::get('logout',[HomeController::class,'logout'])->name('logout');
 Route::get('/',[HomeController::class,'index'])->name('home');
 
-// admin
-Route::match(['get', 'post'], '/account-verification',[AdminController::class,'accountVerification'])->name('account-verification');
-Route::match(['get', 'post'], '/data-verification',[AdminController::class,'dataVerification'])->name('data-verification');
+Route::match(['get', 'post'], '/accounts',[AdminController::class,'accounts'])->name('accounts');
 
-// perusahaan
-Route::match(['get', 'post'], '/data-input',[PerusahaanController::class,'dataInput'])->name('data-input');
+Route::prefix('office')->name('office.')->group(function(){
+    Route::match(['get', 'post'], '/',[PerusahaanController::class,'index'])->name('index');
+    Route::get('create', [PerusahaanController::class,'create'])->name('create');
+    Route::get('{id}', [PerusahaanController::class,'view'])->name('view');
+    Route::post('create', [PerusahaanController::class,'store'])->name('store');
+});

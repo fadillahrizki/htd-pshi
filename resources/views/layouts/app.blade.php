@@ -60,12 +60,12 @@
                     <div class="logo-topbar">
                         <!-- Logo light -->
                         <a href="{{url('/')}}" class="logo-light">
-                            <img src="assets/images/logo-tanjung-balai.png" width="100px" alt="logo">
+                            <img src="{{asset('assets/images/logo-tanjung-balai.png')}}" width="100px" alt="logo">
                         </a>
 
                         <!-- Logo Dark -->
                         <a href="{{url('/')}}" class="logo-dark">
-                            <img src="assets/images/logo-tanjung-balai.png" alt="small logo">
+                            <img src="{{asset('assets/images/logo-tanjung-balai.png')}}" alt="small logo">
                         </a>
                     </div>
 
@@ -111,7 +111,7 @@
                     <li class="dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/flags/us.jpg" alt="user-image" class="me-0 me-sm-1" height="12">
+                            <img src="{{ asset('assets/images/flags/us.jpg') }}" alt="user-image" class="me-0 me-sm-1" height="12">
                             <span class="align-middle d-none d-lg-inline-block">English</span> <i
                                 class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i>
                         </a>
@@ -119,25 +119,25 @@
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span
+                                <img src="{{ asset('assets/images/flags/germany.jpg') }}" alt="user-image" class="me-1" height="12"> <span
                                     class="align-middle">German</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12"> <span
+                                <img src="{{ asset('assets/images/flags/italy.jpg') }}" alt="user-image" class="me-1" height="12"> <span
                                     class="align-middle">Italian</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span
+                                <img src="{{ asset('assets/images/flags/spain.jpg') }}" alt="user-image" class="me-1" height="12"> <span
                                     class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12"> <span
+                                <img src="{{ asset('assets/images/flags/russia.jpg') }}" alt="user-image" class="me-1" height="12"> <span
                                     class="align-middle">Russian</span>
                             </a>
 
@@ -173,7 +173,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-1.jpg" class="img-fluid rounded-circle"
+                                                    <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" class="img-fluid rounded-circle"
                                                         alt="" />
                                                 </div>
                                             </div>
@@ -194,7 +194,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle"
+                                                    <img src="{{ asset('assets/images/users/avatar-2.jpg') }}" class="img-fluid rounded-circle"
                                                         alt="" />
                                                 </div>
                                             </div>
@@ -214,7 +214,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-3.jpg" class="img-fluid rounded-circle"
+                                                    <img src="{{ asset('assets/images/users/avatar-3.jpg') }}" class="img-fluid rounded-circle"
                                                         alt="" />
                                                 </div>
                                             </div>
@@ -234,7 +234,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle"
+                                                    <img src="{{ asset('assets/images/users/avatar-4.jpg') }}" class="img-fluid rounded-circle"
                                                         alt="" />
                                                 </div>
                                             </div>
@@ -255,7 +255,7 @@
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="notify-icon">
-                                                    <img src="assets/images/users/avatar-5.jpg" class="img-fluid rounded-circle"
+                                                    <img src="{{ asset('assets/images/users/avatar-5.jpg') }}" class="img-fluid rounded-circle"
                                                         alt="" />
                                                 </div>
                                             </div>
@@ -385,7 +385,7 @@
                         <a class="nav-link dropdown-toggle arrow-none nav-user" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false">
                             <span class="account-user-avatar">
-                                <img src="assets/images/users/avatar-1.jpg" alt="user-image" width="32" class="rounded-circle">
+                                <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user-image" width="32" class="rounded-circle">
                             </span>
                             <span class="d-lg-block d-none">
                                 <h5 class="my-0 fw-normal">{{auth()->user()->name}} <i
@@ -440,16 +440,16 @@
 
             <!-- Brand Logo Light -->
             <a href="{{url('/')}}" class="logo logo-light mt-2">
-                <img src="assets/images/logo-tanjung-balai.png" alt="logo" width="100px">
+                <img src="{{asset('assets/images/logo-tanjung-balai.png')}}" alt="logo" width="100px">
             </a>
 
             <!-- Brand Logo Dark -->
             <a href="{{url('/')}}" class="logo logo-dark">
                 <span class="logo-lg">
-                    <img src="assets/images/logo-dark.png" alt="dark logo">
+                    <img src="{{asset('assets/images/logo-dark.png')}}" alt="dark logo">
                 </span>
                 <span class="logo-sm">
-                    <img src="assets/images/logo-tanjung-balai.png" alt="small logo">
+                    <img src="{{asset('assets/images/logo-tanjung-balai.png')}}" alt="small logo">
                 </span>
             </a>
 
@@ -471,32 +471,22 @@
                     @if(auth()->user()->role == "Admin")
 
                     <li class="side-nav-item">
-                        <a href="{{route('account-verification')}}" class="side-nav-link">
+                        <a href="{{route('accounts')}}" class="side-nav-link">
                             <i class="mdi mdi-account-multiple-check"></i>
                             <!-- <span class="badge bg-success float-end">9+</span> -->
                             <span> Data Akun </span>
                         </a>
                     </li>
 
+                    @endif
+
                     <li class="side-nav-item">
-                        <a href="{{route('data-verification')}}" class="side-nav-link">
-                            <i class="mdi mdi-file-check"></i>
+                        <a href="{{route('office.index')}}" class="side-nav-link">
+                            <i class="mdi mdi-office-building"></i>
                             <!-- <span class="badge bg-success float-end">9+</span> -->
                             <span> Data Perusahaan </span>
                         </a>
                     </li>
-
-                    @else
-                    
-                    <li class="side-nav-item">
-                        <a href="{{route('data-input')}}" class="side-nav-link">
-                            <i class="mdi mdi-file"></i>
-                            <!-- <span class="badge bg-success float-end">9+</span> -->
-                            <span> Data Perushaan </span>
-                        </a>
-                    </li>
-
-                    @endif
 
                 </ul>
                 <!--- End Sidemenu -->
@@ -556,7 +546,7 @@
                             <div class="form-check form-switch card-switch mb-1">
                                 <input class="form-check-input" type="checkbox" name="data-bs-theme" id="layout-color-light" value="light">
                                 <label class="form-check-label" for="layout-color-light">
-                                    <img src="assets/images/layouts/light.png" alt="" class="img-fluid">
+                                    <img src="{{asset('assets/images/layouts/light.png')}}" alt="" class="img-fluid">
                                 </label>
                             </div>
                             <h5 class="font-14 text-center text-muted mt-2">Light</h5>
@@ -566,7 +556,7 @@
                             <div class="form-check form-switch card-switch mb-1">
                                 <input class="form-check-input" type="checkbox" name="data-bs-theme" id="layout-color-dark" value="dark">
                                 <label class="form-check-label" for="layout-color-dark">
-                                    <img src="assets/images/layouts/dark.png" alt="" class="img-fluid">
+                                    <img src="{{asset('assets/images/layouts/dark.png')}}" alt="" class="img-fluid">
                                 </label>
                             </div>
                             <h5 class="font-14 text-center text-muted mt-2">Dark</h5>
@@ -581,7 +571,7 @@
                                 <div class="form-check form-switch card-switch mb-1">
                                     <input class="form-check-input" type="checkbox" name="data-layout-mode" id="layout-mode-fluid" value="fluid">
                                     <label class="form-check-label" for="layout-mode-fluid">
-                                        <img src="assets/images/layouts/light.png" alt="" class="img-fluid">
+                                        <img src="{{asset('assets/images/layouts/light.png')}}" alt="" class="img-fluid">
                                     </label>
                                 </div>
                                 <h5 class="font-14 text-center text-muted mt-2">Fluid</h5>
@@ -592,7 +582,7 @@
                                     <div class="form-check form-switch card-switch mb-1">
                                         <input class="form-check-input" type="checkbox" name="data-layout-mode" id="layout-mode-boxed" value="boxed">
                                         <label class="form-check-label" for="layout-mode-boxed">
-                                            <img src="assets/images/layouts/boxed.png" alt="" class="img-fluid">
+                                            <img src="{{asset('assets/images/layouts/boxed.png')}}" alt="" class="img-fluid">
                                         </label>
                                     </div>
                                     <h5 class="font-14 text-center text-muted mt-2">Boxed</h5>
@@ -608,7 +598,7 @@
                             <div class="form-check form-switch card-switch mb-1">
                                 <input class="form-check-input" type="checkbox" name="data-topbar-color" id="topbar-color-light" value="light">
                                 <label class="form-check-label" for="topbar-color-light">
-                                    <img src="assets/images/layouts/light.png" alt="" class="img-fluid">
+                                    <img src="{{asset('assets/images/layouts/light.png')}}" alt="" class="img-fluid">
                                 </label>
                             </div>
                             <h5 class="font-14 text-center text-muted mt-2">Light</h5>
@@ -618,7 +608,7 @@
                             <div class="form-check form-switch card-switch mb-1">
                                 <input class="form-check-input" type="checkbox" name="data-topbar-color" id="topbar-color-dark" value="dark">
                                 <label class="form-check-label" for="topbar-color-dark">
-                                    <img src="assets/images/layouts/topbar-dark.png" alt="" class="img-fluid">
+                                    <img src="{{asset('assets/images/layouts/topbar-dark.png')}}" alt="" class="img-fluid">
                                 </label>
                             </div>
                             <h5 class="font-14 text-center text-muted mt-2">Dark</h5>
@@ -633,7 +623,7 @@
                                 <div class="form-check form-switch card-switch mb-1">
                                     <input class="form-check-input" type="checkbox" name="data-menu-color" id="leftbar-color-light" value="light">
                                     <label class="form-check-label" for="leftbar-color-light">
-                                        <img src="assets/images/layouts/sidebar-light.png" alt="" class="img-fluid">
+                                        <img src="{{asset('assets/images/layouts/sidebar-light.png')}}" alt="" class="img-fluid">
                                     </label>
                                 </div>
                                 <h5 class="font-14 text-center text-muted mt-2">Light</h5>
@@ -643,7 +633,7 @@
                                 <div class="form-check form-switch card-switch mb-1">
                                     <input class="form-check-input" type="checkbox" name="data-menu-color" id="leftbar-color-dark" value="dark">
                                     <label class="form-check-label" for="leftbar-color-dark">
-                                        <img src="assets/images/layouts/light.png" alt="" class="img-fluid">
+                                        <img src="{{asset('assets/images/layouts/light.png')}}" alt="" class="img-fluid">
                                     </label>
                                 </div>
                                 <h5 class="font-14 text-center text-muted mt-2">Dark</h5>
@@ -659,7 +649,7 @@
                                 <div class="form-check form-switch card-switch mb-1">
                                     <input class="form-check-input" type="checkbox" name="data-sidenav-size" id="leftbar-size-default" value="default">
                                     <label class="form-check-label" for="leftbar-size-default">
-                                        <img src="assets/images/layouts/light.png" alt="" class="img-fluid">
+                                        <img src="{{asset('assets/images/layouts/light.png')}}" alt="" class="img-fluid">
                                     </label>
                                 </div>
                                 <h5 class="font-14 text-center text-muted mt-2">Default</h5>
@@ -669,7 +659,7 @@
                                 <div class="form-check form-switch card-switch mb-1">
                                     <input class="form-check-input" type="checkbox" name="data-sidenav-size" id="leftbar-size-compact" value="compact">
                                     <label class="form-check-label" for="leftbar-size-compact">
-                                        <img src="assets/images/layouts/compact.png" alt="" class="img-fluid">
+                                        <img src="{{asset('assets/images/layouts/compact.png')}}" alt="" class="img-fluid">
                                     </label>
                                 </div>
                                 <h5 class="font-14 text-center text-muted mt-2">Compact</h5>
@@ -679,7 +669,7 @@
                                 <div class="form-check form-switch card-switch mb-1">
                                     <input class="form-check-input" type="checkbox" name="data-sidenav-size" id="leftbar-size-small" value="condensed">
                                     <label class="form-check-label" for="leftbar-size-small">
-                                        <img src="assets/images/layouts/sm.png" alt="" class="img-fluid">
+                                        <img src="{{asset('assets/images/layouts/sm.png')}}" alt="" class="img-fluid">
                                     </label>
                                 </div>
                                 <h5 class="font-14 text-center text-muted mt-2">Condensed</h5>
@@ -690,7 +680,7 @@
                                 <div class="form-check form-switch card-switch mb-1">
                                     <input class="form-check-input" type="checkbox" name="data-sidenav-size" id="leftbar-size-full" value="full">
                                     <label class="form-check-label" for="leftbar-size-full">
-                                        <img src="assets/images/layouts/full.png" alt="" class="img-fluid">
+                                        <img src="{{asset('assets/images/layouts/full.png')}}" alt="" class="img-fluid">
                                     </label>
                                 </div>
                                 <h5 class="font-14 text-center text-muted mt-2">Full Layout</h5>
@@ -718,7 +708,7 @@
                     <button type="button" class="btn btn-light w-100" id="reset-layout">Reset</button>
                 </div>
                 <div class="col-6">
-                    <a href="https://1.envato.market/velonic" target="_blank" role="button" class="btn btn-primary w-100">Buy Now</a>
+                    <a href="https://1.envato.market/Dinas Ketenagakerjaan Kota Tanjung Balai" target="_blank" role="button" class="btn btn-primary w-100">Buy Now</a>
                 </div>
             </div>
         </div>

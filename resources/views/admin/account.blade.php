@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Data Verification')
+@section('title', 'Data Akun')
 
 @section('content')
 
@@ -13,11 +13,11 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Velonic</a></li>
-                        <li class="breadcrumb-item active">Data Verification</li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dinas Ketenagakerjaan Kota Tanjung Balai</a></li>
+                        <li class="breadcrumb-item active">Data Akun</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Data Verification</h4>
+                <h4 class="page-title">Data Akun</h4>
             </div>
         </div>
     </div>
@@ -36,33 +36,27 @@
                     <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                         <thead>
                             <tr>
-                                <th>User</th>
-                                <th>Nama Perusahaan</th>
-                                <th>No Telepon</th>
-                                <th>Email Perusahaan</th>
-                                <th>Jenis Usaha</th>
+                                <th>Name</th>
+                                <th>Email</th>
                                 <th>Status</th>
                                 <th data-orderable="false">Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach($data as $dt)
+                            @foreach($accounts as $account)
                             <tr>
-                                <td>{{$dt->user->name}} ({{$dt->user->email}})</td>
-                                <td>{{$dt->nama_perusahaan}}</td>
-                                <td>{{$dt->no_telepon}}</td>
-                                <td>{{$dt->email}}</td>
-                                <td>{{$dt->jenis_usaha}}</td>
+                                <td>{{$account->name}}</td>
+                                <td>{{$account->email}}</td>
                                 <td>
-                                    <span class="badge {{($dt->status == 'Waiting' ? 'bg-info' : ($dt->status == 'Verified' ? 'bg-success' : 'bg-danger'))}}">{{$dt->status}}</span>
+                                    <span class="badge {{($account->status == 'Waiting' ? 'bg-info' : ($account->status == 'Verified' ? 'bg-success' : 'bg-danger'))}}">{{$account->status}}</span>
                                 </td>
                                 <td>
-                                    @if($dt->status == 'Waiting')
-                                        <a href="#" onclick="action(event, {{$dt->id}}, 'verify')" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Verify"> 
+                                    @if($account->status == 'Waiting')
+                                        <a href="#" onclick="action(event, {{$account->id}}, 'verify')" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Terima"> 
                                             <i class="mdi mdi-check"></i>
                                         </a>
-                                        <a href="#" onclick="action(event, {{$dt->id}}, 'reject')" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Reject">
+                                        <a href="#" onclick="action(event, {{$account->id}}, 'reject')" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tolak">
                                             <i class="mdi mdi-cancel"></i>
                                         </a>
                                     @endif

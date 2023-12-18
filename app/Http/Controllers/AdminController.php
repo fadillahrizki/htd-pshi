@@ -14,7 +14,7 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
     
-    public function accountVerification(Request $request) {
+    public function accounts(Request $request) {
 
         if($request->isMethod('post')) {
             $user = User::find($request->input('id'));
@@ -32,26 +32,6 @@ class AdminController extends Controller
 
         $accounts = User::where('role', 'Perusahaan')->get();
 
-        return view('admin.account_verification', ['accounts'=>$accounts]);
-    }
-
-    public function dataVerification(Request $request) {
-        if($request->isMethod('post')) {
-            $dataUmum = DataUmum::find($request->input('id'));
-
-            if($request->input('type') == 'verify') {
-                $dataUmum->status = 'Verified';
-            } else if($request->input('type') == 'reject') {
-                $dataUmum->status = 'Rejected';
-            }
-
-            $dataUmum->save();
-
-            return back()->with(['message'=> 'Account Updated!']);
-        }
-
-        $data = DataUmum::get();
-
-        return view('admin.data_verification', ['data' => $data]);
+        return view('admin.account', ['accounts'=>$accounts]);
     }
 }

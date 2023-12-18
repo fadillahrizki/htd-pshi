@@ -11,7 +11,7 @@ class PerangkatHubunganIndustri extends Model
     
     protected $guarded = [];
 
-    function kondisiTenagaKerja() {
+    function kondisi_tenaga_kerja() {
         return $this->hasOne(KondisiTenagaKerja::class);
     }
 

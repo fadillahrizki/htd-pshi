@@ -16,6 +16,6 @@ class ProgramJaminanSosial extends Model
         'program_jht' => 'array',
         'program_jkm' => 'array',
         'program_jp' => 'array',
-        'program_jpk' => 'array',
+        'program_jkp' => 'array',
     ];
 }

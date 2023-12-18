@@ -11,7 +11,7 @@ class BpjsKetenagakerjaan extends Model
     
     protected $guarded = [];
 
-    function programJaminanSosial() {
+    function program_jaminan_sosial() {
         return $this->hasOne(ProgramJaminanSosial::class);
     }
 }

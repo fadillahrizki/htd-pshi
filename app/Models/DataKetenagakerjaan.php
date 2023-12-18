@@ -11,7 +11,7 @@ class DataKetenagakerjaan extends Model
     
     protected $guarded = [];
 
-    function sistemPembayaranUpah() {
+    function sistem_pembayaran_upah() {
         return $this->hasOne(SistemPembayaranUpah::class);
     }
 }
