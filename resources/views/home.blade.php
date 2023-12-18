@@ -116,29 +116,6 @@
         <div class="col-12 text-center">
             <h4>PERSELISIHAN HUBUNGAN INDUSTRI</h4>
         </div>
-        <div class="col-sm-6">
-            <div class="card widget-flat">
-                <div class="card-body">
-                    <div class="float-end">
-                        <i class="ri-eye-line widget-icon"></i>
-                    </div>
-                    <h6 class="text-uppercase mt-0" title="Customers">Total Perselisihan Hak</h6>
-                    <h2 class="my-2">{{$totalPemutusanHubunganKerja}}</h2>
-                </div>
-            </div>
-        </div> <!-- end col-->
-
-        <div class="col-sm-6">
-            <div class="card widget-flat">
-                <div class="card-body">
-                    <div class="float-end">
-                        <i class="ri-wallet-2-line widget-icon"></i>
-                    </div>
-                    <h6 class="text-uppercase mt-0" title="Customers">Total Perselisihan Kepentingan</h6>
-                    <h2 class="my-2">{{$totalPemutusanHubunganKerja}}</h2>
-                </div>
-            </div>
-        </div> <!-- end col-->
         
         <div class="col-sm-6">
             <div class="card widget-flat">
@@ -160,6 +137,30 @@
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Total Perselisihan Antara SP/SB dalam satu Perusahaan</h6>
                     <h2 class="my-2">{{$totalSerikatKerjaBuruh}}</h2>
+                </div>
+            </div>
+        </div> <!-- end col-->
+
+        <div class="col-sm-6">
+            <div class="card widget-flat">
+                <div class="card-body">
+                    <div class="float-end">
+                        <i class="ri-eye-line widget-icon"></i>
+                    </div>
+                    <h6 class="text-uppercase mt-0" title="Customers">Total Mogok Kerja</h6>
+                    <h2 class="my-2">{{$totalMogokKerja}}</h2>
+                </div>
+            </div>
+        </div> <!-- end col-->
+
+        <div class="col-sm-6">
+            <div class="card widget-flat">
+                <div class="card-body">
+                    <div class="float-end">
+                        <i class="ri-wallet-2-line widget-icon"></i>
+                    </div>
+                    <h6 class="text-uppercase mt-0" title="Customers">Total Lock Out (Penutupan Perusahaan)</h6>
+                    <h2 class="my-2">{{$totalLockOut}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->

@@ -49,6 +49,10 @@ class HomeController extends Controller
 
         $totalPemutusanHubunganKerja = KasusPerselisihan::sum('pemutusan_hubungan_kerja');
 
+        $totalMogokKerja = KasusPerselisihan::sum('mogok_kerja');
+
+        $totalLockOut = KasusPerselisihan::sum('lock_out');
+
         $data = [
             'userCount'=>$userCount, 
             'perusahaanCount' => $perusahaanCount, 
@@ -59,6 +63,8 @@ class HomeController extends Controller
             'mogokKerja'=>$mogokKerja,
             'totalPemutusanHubunganKerja'=>$totalPemutusanHubunganKerja,
             'totalSerikatKerjaBuruh'=>$totalSerikatKerjaBuruh,
+            'totalMogokKerja'=>$totalMogokKerja,
+            'totalLockOut'=>$totalLockOut,
         ];
 
         return view('home', $data);
