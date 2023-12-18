@@ -32,18 +32,20 @@ class HomeController extends Controller
         $perusahaanCount = DataUmum::count();
         $perusahaanVerifiedCount = DataUmum::where('status', 'Verified')->count();
         $perusahaanRejectedCount = DataUmum::where('status', 'Rejected')->count();
-
-        $perjanjianKerja = PerangkatHubunganIndustri::where('perjanjian_kerja', 'Ada')->whereHas('dataUmum', function($query){
+        
+        $verifiedKasusPerselisihan = KasusPerselisihan::whereHas('dataUmum', function($query){
             return $query->where('status', 'Verified');
-        })->count();
+        });
 
-        $pemutusanHubunganKerja = KasusPerselisihan::whereHas('dataUmum', function($query){
+        $perjanjianKerja = PerangkatHubunganIndustri::whereHas('dataUmum', function($query){
             return $query->where('status', 'Verified');
-        })->sum('pemutusan_hubungan_kerja');
+        })->where('perjanjian_kerja', 'Ada')->count();
 
-        $mogokKerja = KasusPerselisihan::whereHas('dataUmum', function($query){
-            return $query->where('status', 'Verified');
-        })->sum('mogok_kerja');
+        $pemutusanHubunganKerja = $verifiedKasusPerselisihan->sum('pemutusan_hubungan_kerja');
+
+        $mogokKerja = $verifiedKasusPerselisihan->sum('mogok_kerja');
+
+        $totalSerikatKerjaBuruh = KasusPerselisihan::sum('serikat_pekerja_buruh');
 
         $totalPemutusanHubunganKerja = KasusPerselisihan::sum('pemutusan_hubungan_kerja');
 
@@ -56,6 +58,7 @@ class HomeController extends Controller
             'pemutusanHubunganKerja'=>$pemutusanHubunganKerja,
             'mogokKerja'=>$mogokKerja,
             'totalPemutusanHubunganKerja'=>$totalPemutusanHubunganKerja,
+            'totalSerikatKerjaBuruh'=>$totalSerikatKerjaBuruh,
         ];
 
         return view('home', $data);

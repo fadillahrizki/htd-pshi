@@ -159,7 +159,7 @@
                         <i class="ri-wallet-2-line widget-icon"></i>
                     </div>
                     <h6 class="text-uppercase mt-0" title="Customers">Total Perselisihan Antara SP/SB dalam satu Perusahaan</h6>
-                    <h2 class="my-2">{{$totalPemutusanHubunganKerja}}</h2>
+                    <h2 class="my-2">{{$totalSerikatKerjaBuruh}}</h2>
                 </div>
             </div>
         </div> <!-- end col-->
