@@ -69,16 +69,12 @@
                     </div>
 
                 @endif
-
-                @if ($errors->any())
-                    <div class="card-header">
-                        <div class="alert alert-danger">
-                           Gagal mengirimkan data!
-                        </div>
-                    </div>
-                @endif
-                
                 <div class="card-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            Gagal mengirimkan data!
+                        </div>
+                    @endif
 
                     @if(session()->get('status') == 'success')
                         <div class="alert alert-success" role="alert">
