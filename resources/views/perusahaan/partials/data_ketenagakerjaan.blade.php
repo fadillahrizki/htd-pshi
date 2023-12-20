@@ -9,7 +9,7 @@
             'borongan' => old('data_ketenagakerjaan')['sistem_pembayaran_upah']['borongan'] ?? ($dataKetenagakerjaan['sistem_pembayaran_upah']['borongan'] ?? (session('data_input')['data_ketenagakerjaan']['sistem_pembayaran_upah']['borongan'] ?? '' )),
             'bulanan' => old('data_ketenagakerjaan')['sistem_pembayaran_upah']['bulanan'] ?? ($dataKetenagakerjaan['sistem_pembayaran_upah']['bulanan'] ?? (session('data_input')['data_ketenagakerjaan']['sistem_pembayaran_upah']['bulanan'] ?? '' )),
         ],
-        'struktur_skala_upah' => old('data_ketenagakerjaan')['struktur_skala_upah'] ?? ($dataKetenagakerjaan['struktur_skala_upah'] ?? (session('data_input')['data_ketenagakerjaan']['struktur_skala_upah'] ?? '' )),
+        'struktur_skala_upah' => old('data_ketenagakerjaan')['struktur_skala_upah'] ?? ($dataKetenagakerjaan['struktur_skala_upah'] ?? (session('data_input')['data_ketenagakerjaan']['struktur_skala_upah'] ?? 'Ada' )),
     ];
 
 @endphp
@@ -20,7 +20,7 @@
         <div class="row mb-3">
             <label class="col-md-3 col-form-label" for="data_ketenagakerjaan[waktu_kerja]">Waktu Kerja</label>
             <div class="col-md-9">
-                <input @if(isset($dataKetenagakerjaan)) disabled @endif type="time" id="data_ketenagakerjaan[waktu_kerja]" value="{{ $data_ketenagakerjaan['waktu_kerja'] }}" name="data_ketenagakerjaan[waktu_kerja]" class="form-control">
+                <input @if(isset($dataKetenagakerjaan)) disabled @endif type="time" id="data_ketenagakerjaan[waktu_kerja]" value="{{ $data_ketenagakerjaan['waktu_kerja'] }}" name="data_ketenagakerjaan[waktu_kerja]" class="form-control @error('data_ketenagakerjaan.waktu_kerja') is-invalid @enderror">
             </div>
         </div>
         <div class="row mb-3">
@@ -30,13 +30,13 @@
             <div class="row mb-3">
                 <label class="col-md-3 col-form-label" for="data_ketenagakerjaan[tingkat_upah_terendah]">Tingkat Upah Terendah</label>
                 <div class="col-md-9">
-                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[tingkat_upah_terendah]" value="{{ $data_ketenagakerjaan['tingkat_upah_terendah'] }}" name="data_ketenagakerjaan[tingkat_upah_terendah]" class="form-control">
+                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[tingkat_upah_terendah]" value="{{ $data_ketenagakerjaan['tingkat_upah_terendah'] }}" name="data_ketenagakerjaan[tingkat_upah_terendah]" class="form-control @error('data_ketenagakerjaan.tingkat_upah_terendah') is-invalid @enderror">
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-md-3 col-form-label" for="data_ketenagakerjaan[tingkat_upah_tertinggi]">Tingkat Upah Tertinggi</label>
                 <div class="col-md-9">
-                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[tingkat_upah_tertinggi]" value="{{ $data_ketenagakerjaan['tingkat_upah_tertinggi'] }}" name="data_ketenagakerjaan[tingkat_upah_tertinggi]" class="form-control">
+                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[tingkat_upah_tertinggi]" value="{{ $data_ketenagakerjaan['tingkat_upah_tertinggi'] }}" name="data_ketenagakerjaan[tingkat_upah_tertinggi]" class="form-control @error('data_ketenagakerjaan.tingkat_upah_tertinggi') is-invalid @enderror">
                 </div>
             </div>
         </div>
@@ -47,24 +47,24 @@
             <div class="row mb-3">
                 <label class="col-md-3 col-form-label" for="data_ketenagakerjaan[sistem_pembayaran_upah][harian]">Harian</label>
                 <div class="col-md-9">
-                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[sistem_pembayaran_upah][harian]" value="{{ $data_ketenagakerjaan['sistem_pembayaran_upah']['harian'] }}" name="data_ketenagakerjaan[sistem_pembayaran_upah][harian]" class="form-control">
+                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[sistem_pembayaran_upah][harian]" value="{{ $data_ketenagakerjaan['sistem_pembayaran_upah']['harian'] }}" name="data_ketenagakerjaan[sistem_pembayaran_upah][harian]" class="form-control @error('data_ketenagakerjaan.sistem_pembayaran_upah.harian') is-invalid @enderror">
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-md-3 col-form-label" for="data_ketenagakerjaan[sistem_pembayaran_upah][borongan]">Borongan</label>
                 <div class="col-md-9">
-                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[sistem_pembayaran_upah][borongan]" value="{{ $data_ketenagakerjaan['sistem_pembayaran_upah']['borongan'] }}" name="data_ketenagakerjaan[sistem_pembayaran_upah][borongan]" class="form-control">
+                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[sistem_pembayaran_upah][borongan]" value="{{ $data_ketenagakerjaan['sistem_pembayaran_upah']['borongan'] }}" name="data_ketenagakerjaan[sistem_pembayaran_upah][borongan]" class="form-control @error('data_ketenagakerjaan.sistem_pembayaran_upah.borongan') is-invalid @enderror">
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-md-3 col-form-label" for="data_ketenagakerjaan[sistem_pembayaran_upah][bulanan]">Bulanan</label>
                 <div class="col-md-9">
-                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[sistem_pembayaran_upah][bulanan]" value="{{ $data_ketenagakerjaan['sistem_pembayaran_upah']['bulanan'] }}" name="data_ketenagakerjaan[sistem_pembayaran_upah][bulanan]" class="form-control">
+                    <input @if(isset($dataKetenagakerjaan)) disabled @endif type="number" id="data_ketenagakerjaan[sistem_pembayaran_upah][bulanan]" value="{{ $data_ketenagakerjaan['sistem_pembayaran_upah']['bulanan'] }}" name="data_ketenagakerjaan[sistem_pembayaran_upah][bulanan]" class="form-control @error('data_ketenagakerjaan.sistem_pembayaran_upah.bulanan') is-invalid @enderror">
                 </div>
             </div>
         </div>
         <div class="row mb-3">
-            <label class="col-md-3 col-form-label">Struktuk dan Skala Upah</label>
+            <label class="col-md-3 col-form-label">Struktur dan Skala Upah</label>
             <div class="col-md-9 m-auto">
                 <div class="form-check form-check-inline">
                     <input @if(isset($dataKetenagakerjaan)) disabled @endif type="radio" id="struktur_skala_upah_opt1" name="data_ketenagakerjaan[struktur_skala_upah]" class="form-check-input" value="Ada" @if($data_ketenagakerjaan['struktur_skala_upah'] == 'Ada') checked @endif>

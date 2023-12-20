@@ -70,6 +70,66 @@ class PerusahaanController extends Controller
             return back()->with(['status'=>'success', 'message' => 'Sukes menyimpan data!']);
         } else if($request->input('type') == 'submit') {
 
+            $request->validate([
+                'data_umum.nama_perusahaan' => 'required',
+                'data_umum.alamat_perusahaan' => 'required',
+                'data_umum.no_telepon' => 'required',
+                'data_umum.email' => 'required',
+                'data_umum.jenis_usaha' => 'required',
+                'data_umum.nama_pemilik_perusahaan' => 'required',
+                'data_umum.alamat_pemilik_perusahaan' => 'required',
+                'data_umum.pendirian_perusahaan' => 'required',
+                'data_umum.no_akte_pendirian' => 'required',
+                'data_umum.status_perusahaan' => 'required',
+                'data_umum.status_kepemilikan' => 'required',
+
+                'data_ketenagakerjaan.waktu_kerja' => 'required',
+                'data_ketenagakerjaan.tingkat_upah_terendah' => 'required',
+                'data_ketenagakerjaan.tingkat_upah_tertinggi' => 'required',
+                'data_ketenagakerjaan.struktur_skala_upah' => 'required',
+
+                'data_ketenagakerjaan.sistem_pembayaran_upah.harian' => 'required',
+                'data_ketenagakerjaan.sistem_pembayaran_upah.borongan' => 'required',
+                'data_ketenagakerjaan.sistem_pembayaran_upah.bulanan' => 'required',
+
+                'bpjs_kesehatan.jumlah_tenaga_kerja_laki_laki' => 'required',
+                'bpjs_kesehatan.jumlah_tenaga_kerja_perempuan' => 'required',
+
+                'bpjs_ketenagakerjaan.no_bpjs_ketenagakerjaan_perusahaan' => 'required',
+
+                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkk.*' => 'required',
+                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jht.*' => 'required',
+                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkm.*' => 'required',
+                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jp.*' => 'required',
+                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkp.*' => 'required',
+
+                'perangkat_hubungan_industri.perangkat_hubungan_kerja' => 'required',
+                'perangkat_hubungan_industri.perjanjian_kerja' => 'required',
+                'perangkat_hubungan_industri.lks_bipartite' => 'required',
+                'perangkat_hubungan_industri.serikat_pekerja_buruh' => 'required',
+                'perangkat_hubungan_industri.nama_serikat_pekerja_buruh' => 'required',
+
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.sd.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.sltp.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.sma.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.d1.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.d2.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.d3.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.d4.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.s1.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.s2.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.s3.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.pkwt.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.pkwtt.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.penyandang_disabilitas.*' => 'required',
+
+                'kasus_perselisihan.pemutusan_hubungan_kerja' => 'required',
+                'kasus_perselisihan.serikat_pekerja_buruh' => 'required',
+                'kasus_perselisihan.mogok_kerja' => 'required',
+                'kasus_perselisihan.lock_out' => 'required',
+            ]);
+
+
             DB::beginTransaction();
 
             try {

@@ -69,6 +69,15 @@
                     </div>
 
                 @endif
+
+                @if ($errors->any())
+                    <div class="card-header">
+                        <div class="alert alert-danger">
+                           Gagal mengirimkan data!
+                        </div>
+                    </div>
+                @endif
+                
                 <div class="card-body">
 
                     @if(session()->get('status') == 'success')
@@ -91,12 +100,12 @@
 
                             <ul class="nav nav-pills nav-justified form-wizard-header mb-4">
                                 <li class="nav-item">
-                                    <a href="#tab1" data-bs-toggle="tab" data-toggle="tab"  class="d-flex h-100 nav-link rounded-0 py-2"> 
+                                    <a href="#tab1" data-bs-toggle="tab" data-toggle="tab"  class="d-flex h-100 nav-link rounded-0 py-2 @error('data_umum.*') border border-danger @enderror"> 
                                         <span class="d-none d-sm-inline m-auto">Data Umum</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#tab2" data-bs-toggle="tab" data-toggle="tab" class="d-flex h-100 nav-link rounded-0 py-2">
+                                    <a href="#tab2" data-bs-toggle="tab" data-toggle="tab" class="d-flex h-100 nav-link rounded-0 py-2 @error('data_ketenagakerjaan.*') border border-danger @enderror">
                                         <span class="d-none d-sm-inline m-auto">Data Ketenagakerjaan</span>
                                     </a>
                                 </li>
@@ -106,12 +115,12 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#tab4" data-bs-toggle="tab" data-toggle="tab" class="d-flex h-100 nav-link rounded-0 py-2">
+                                    <a href="#tab4" data-bs-toggle="tab" data-toggle="tab" class="d-flex h-100 nav-link rounded-0 py-2 @if($errors->has('bpjs_kesehatan.*') || $errors->has('bpjs_ketenagakerjaan.*')) border border-danger @endif">
                                         <span class="d-none d-sm-inline m-auto">BPJS Kesehatan dan Ketenagakerjaan</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#tab5" data-bs-toggle="tab" data-toggle="tab" class="d-flex h-100 nav-link rounded-0 py-2">
+                                    <a href="#tab5" data-bs-toggle="tab" data-toggle="tab" class="d-flex h-100 nav-link rounded-0 py-2 @if($errors->has('perangkat_hubungan_industri.*') || $errors->has('kasus_perselisihan.*')) border border-danger @endif">
                                         <span class="d-none d-sm-inline m-auto">Perangkat Hubungan Industri, Pelaksanaan Cuti, dan Kasus/Perselisihan</span>
                                     </a>
                                 </li>
