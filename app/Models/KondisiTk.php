@@ -10,15 +10,15 @@ class KondisiTk extends Model
     use HasFactory;
     protected $table = 'kondisi_tks';
     protected $fillable = [
-        'user_id',
+        'data_umum_id',
         'lulusan_id',
         'jumlah_lk',
         'jumlah_pr',
     ];
 
-    function user()
+    function dataUmum()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(DataUmum::class, 'data_umum_id');
     }
 
     function lulusan()

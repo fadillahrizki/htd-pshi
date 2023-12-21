@@ -15,12 +15,12 @@ class CreateFasilitasTable extends Migration
     {
         Schema::create('fasilitas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('data_umum_id');
             $table->unsignedBigInteger('fasilitas_id');
 
             $table->timestamps();
             
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('data_umum_id')->references('id')->on('data_umums')->onDelete('cascade');
             $table->foreign('fasilitas_id')->references('id')->on('ref_fasilitas')->onDelete('cascade');
         });
     }

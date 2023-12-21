@@ -10,15 +10,15 @@ class JaminanSosial extends Model
     use HasFactory;
     protected $table = 'jaminan_sosials';
     protected $fillable = [
-        'user_id',
+        'data_umum_id',
         'jamsos_id',
         'jumlah_lk',
         'jumlah_pr',
     ];
 
-    function user()
+    function dataUmum()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(DataUmum::class, 'data_umum_id');
     }
 
     function jamsos()

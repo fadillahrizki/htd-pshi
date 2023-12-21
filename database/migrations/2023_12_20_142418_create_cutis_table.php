@@ -15,10 +15,10 @@ class CreateCutisTable extends Migration
     {
         Schema::create('cutis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('data_umum_id');
             $table->unsignedBigInteger('cuti_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('data_umum_id')->references('id')->on('data_umums')->onDelete('cascade');
         });
     }
 

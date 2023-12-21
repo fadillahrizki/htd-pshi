@@ -46,4 +46,24 @@ class DataUmum extends Model
     function fasilitas_kesejahteraan() {
         return $this->hasOne(FasilitasKesejahteraan::class);
     }
+
+    function fasilitas()
+    {
+        return $this->hasMany(Fasilitas::class, 'data_umum_id');
+    }
+    
+    function jaminanSosial()
+    {
+        return $this->hasMany(JaminanSosial::class, 'data_umum_id');
+    }
+    
+    function kondisiTk()
+    {
+        return $this->hasMany(KondisiTk::class, 'data_umum_id');
+    }
+    
+    function cuti()
+    {
+        return $this->hasMany(Cuti::class, 'data_umum_id');
+    }
 }

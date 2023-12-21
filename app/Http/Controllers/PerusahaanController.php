@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cuti;
 use App\Models\DataUmum;
+use App\Models\Fasilitas;
+use App\Models\JaminanSosial;
+use App\Models\KondisiTk;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -43,6 +47,21 @@ class PerusahaanController extends Controller
     }
 
     public function view($id) {
+        $dataUmum = DataUmum::find($id);
+
+        $dataUmum->data_ketenagakerjaan;
+        $dataUmum->fasilitas;
+        $dataUmum->bpjs_kesehatan;
+        $dataUmum->bpjs_ketenagakerjaan;
+        $dataUmum->perangkat_hubungan_industri;
+        $dataUmum->kasus_perselisihan;
+        $dataUmum->jaminanSosial;
+        $dataUmum->cuti;
+
+        return view('perusahaan.show', compact('dataUmum'));
+    }
+
+    public function oldview($id) {
         $dataUmum = DataUmum::find($id);
         
         $data = [
@@ -99,11 +118,11 @@ class PerusahaanController extends Controller
 
                 'bpjs_ketenagakerjaan.no_bpjs_ketenagakerjaan_perusahaan' => 'required',
 
-                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkk.*' => 'required',
-                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jht.*' => 'required',
-                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkm.*' => 'required',
-                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jp.*' => 'required',
-                'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkp.*' => 'required',
+                'bpjs_ketenagakerjaan.program_jaminan_sosial.*' => 'required|array',
+                // 'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jht.*' => 'required',
+                // 'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkm.*' => 'required',
+                // 'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jp.*' => 'required',
+                // 'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkp.*' => 'required',
 
                 'perangkat_hubungan_industri.perangkat_hubungan_kerja' => 'required',
                 'perangkat_hubungan_industri.perjanjian_kerja' => 'required',
@@ -111,19 +130,19 @@ class PerusahaanController extends Controller
                 'perangkat_hubungan_industri.serikat_pekerja_buruh' => 'required',
                 'perangkat_hubungan_industri.nama_serikat_pekerja_buruh' => 'required',
 
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.sd.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.sltp.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.sma.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.d1.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.d2.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.d3.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.d4.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.s1.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.s2.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.s3.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.pkwt.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.pkwtt.*' => 'required',
-                'perangkat_hubungan_industri.kondisi_tenaga_kerja.penyandang_disabilitas.*' => 'required',
+                'perangkat_hubungan_industri.kondisi_tenaga_kerja.*' => 'required|array',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.sltp.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.sma.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.d1.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.d2.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.d3.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.d4.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.s1.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.s2.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.s3.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.pkwt.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.pkwtt.*' => 'required',
+                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.penyandang_disabilitas.*' => 'required',
 
                 'kasus_perselisihan.pemutusan_hubungan_kerja' => 'required',
                 'kasus_perselisihan.serikat_pekerja_buruh' => 'required',
@@ -138,32 +157,77 @@ class PerusahaanController extends Controller
                 
                 $user = User::create([
                     'name' => $request->data_umum['nama_perusahaan'],
-                    'username' => $request->data_umum['email'],
+                    'email' => $request->data_umum['email'],
                     'password' => bcrypt('secret'),
                 ]);
 
                 $dataUmum = $user->dataUmums()->create($request->input('data_umum'));
 
-                // $dataKetenagaKerjaan = $dataUmum->data_ketenagakerjaan()->create(Arr::except($request->input('data_ketenagakerjaan'), 'sistem_pembayaran_upah'));
-                // $sistemPembayaranUpah = $dataKetenagaKerjaan->sistem_pembayaran_upah()->create($request->input('data_ketenagakerjaan')['sistem_pembayaran_upah']);
+                $dataKetenagaKerjaan  = $dataUmum->data_ketenagakerjaan()->create(Arr::except($request->input('data_ketenagakerjaan'), 'sistem_pembayaran_upah'));
+                $sistemPembayaranUpah = $dataKetenagaKerjaan->sistem_pembayaran_upah()->create($request->input('data_ketenagakerjaan')['sistem_pembayaran_upah']);
+                $bpjsKesehatan = $dataUmum->bpjs_kesehatan()->create($request->input('bpjs_kesehatan'));
 
+                if($request->kategori)
+                {
+                    foreach($request->kategori as $kategori_id => $fasilitas)
+                    {
+                        foreach($fasilitas as $fasilitas_id => $value)
+                        {
+                            if($value == 'on')
+                            {
+                                Fasilitas::create([
+                                    'data_umum_id' => $dataUmum->id,
+                                    'fasilitas_id' => $fasilitas_id
+                                ]);
+                            }
+                        }
+                    }
+                }
+
+                foreach($request->bpjs_ketenagakerjaan['program_jaminan_sosial'] as $jamsos_id => $value)
+                {
+                    JaminanSosial::create([
+                        'data_umum_id' => $dataUmum->id,
+                        'jamsos_id' => $jamsos_id,
+                        'jumlah_lk' => $value['lk'],
+                        'jumlah_pr' => $value['pr'],
+                    ]);
+                }
+
+                foreach($request->input('perangkat_hubungan_industri')['kondisi_tenaga_kerja'] as $lulusan_id => $value)
+                {
+                    KondisiTk::create([
+                        'data_umum_id' => $dataUmum->id,
+                        'lulusan_id'   => $lulusan_id,
+                        'jumlah_lk'    => $value['lk'],
+                        'jumlah_pr'    => $value['pr'],
+                    ]);
+                }
+
+                foreach($request->pelaksanaan_cuti as $cuti_id => $value)
+                {
+                    Cuti::create([
+                        'data_umum_id' => $dataUmum->id,
+                        'cuti_id'   => $cuti_id,
+                    ]);
+                }
+
+                $bpjsKetenagakerjaan = $dataUmum->bpjs_ketenagakerjaan()->create(Arr::except($request->input('bpjs_ketenagakerjaan'), 'program_jaminan_sosial'));
+                
+                $perangkatHubunganIndustri = $dataUmum->perangkat_hubungan_industri()->create(Arr::except($request->input('perangkat_hubungan_industri'), 'kondisi_tenaga_kerja'));
+                
+                $kasusPerselisihan = $dataUmum->kasus_perselisihan()->create($request->input('kasus_perselisihan'));
+                
                 // $fasilitasKeselamatanKesehatanKerja = $dataUmum->fasilitas_keselamatan_kesehatan_kerja()->create($request->input('fasilitas_keselamatan_kesehatan_kerja'));
 
                 // $fasilitasKesejahteraan = $dataUmum->fasilitas_kesejahteraan()->create($request->input('fasilitas_kesejahteraan'));
                 
-                // $bpjsKesehatan = $dataUmum->bpjs_kesehatan()->create($request->input('bpjs_kesehatan'));
-
-                // $bpjsKetenagakerjaan = $dataUmum->bpjs_ketenagakerjaan()->create(Arr::except($request->input('bpjs_ketenagakerjaan'), 'program_jaminan_sosial'));
-                
                 // $programJaminanSosial = $bpjsKetenagakerjaan->program_jaminan_sosial()->create($request->input('bpjs_ketenagakerjaan')['program_jaminan_sosial']);
-
-                // $perangkatHubunganIndustri = $dataUmum->perangkat_hubungan_industri()->create(Arr::except($request->input('perangkat_hubungan_industri'), 'kondisi_tenaga_kerja'));
 
                 // $kondisiTenagaKerja = $perangkatHubunganIndustri->kondisi_tenaga_kerja()->create($request->input('perangkat_hubungan_industri')['kondisi_tenaga_kerja']);
 
                 // $pelaksanaanCuti = $dataUmum->pelaksanaan_cuti()->create($request->input('pelaksanaan_cuti'));
 
-                // $kasusPerselisihan = $dataUmum->kasus_perselisihan()->create($request->input('kasus_perselisihan'));
                 
                 DB::commit();
                 

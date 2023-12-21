@@ -10,13 +10,13 @@ class Cuti extends Model
     use HasFactory;
     protected $table = 'cutis';
     protected $fillable = [
-        'user_id',
+        'data_umum_id',
         'cuti_id',
     ];
 
-    function user()
+    function dataUmum()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(DataUmum::class, 'data_umum_id');
     }
 
     function cuti()
