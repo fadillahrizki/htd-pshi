@@ -9,23 +9,23 @@
         'no_bpjs_ketenagakerjaan_perusahaan' => old('bpjs_ketenagakerjaan')['no_bpjs_ketenagakerjaan_perusahaan'] ?? ($bpjsKetenagakerjaan['no_bpjs_ketenagakerjaan_perusahaan'] ?? (session('data_input')['bpjs_ketenagakerjaan']['no_bpjs_ketenagakerjaan_perusahaan'] ?? '' )),
 
         'program_jaminan_sosial' => [
-            'program_jkk' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jkk'] ?? [
+            'program_jkk' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jkk'] ? json_decode($bpjsKetenagakerjaan['program_jaminan_sosial']['program_jkk'], true) : [
                 'lk' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jkk']['lk'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jkk']['lk'] ?? '' ),
                 'pr' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jkk']['pr'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jkk']['pr'] ?? '' ),
             ],
-            'program_jht' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jht'] ?? [
+            'program_jht' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jht'] ? json_decode($bpjsKetenagakerjaan['program_jaminan_sosial']['program_jht'], true) : [
                 'lk' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jht']['lk'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jht']['lk'] ?? '' ),
                 'pr' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jht']['pr'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jht']['pr'] ?? '' ),
             ],
-            'program_jkm' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jkm'] ?? [
+            'program_jkm' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jkm'] ? json_decode($bpjsKetenagakerjaan['program_jaminan_sosial']['program_jkm'], true) : [
                 'lk' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jkm']['lk'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jkm']['lk'] ?? '' ),
                 'pr' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jkm']['pr'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jkm']['pr'] ?? '' ),
             ],
-            'program_jp' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jp'] ?? [
+            'program_jp' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jp'] ? json_decode($bpjsKetenagakerjaan['program_jaminan_sosial']['program_jp'], true) : [
                 'lk' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jp']['lk'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jp']['lk'] ?? '' ),
                 'pr' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jp']['pr'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jp']['pr'] ?? '' ),
             ],
-            'program_jkp' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jkk'] ?? [
+            'program_jkp' => $bpjsKetenagakerjaan['program_jaminan_sosial']['program_jkk'] ? json_decode($bpjsKetenagakerjaan['program_jaminan_sosial']['program_jkk'], true) : [
                 'lk' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jkp']['lk'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jkp']['lk'] ?? '' ),
                 'pr' => old('bpjs_ketenagakerjaan')['program_jaminan_sosial']['program_jkp']['pr'] ?? (session('data_input')['bpjs_ketenagakerjaan']['program_jaminan_sosial']['program_jkp']['pr'] ?? '' ),
             ],

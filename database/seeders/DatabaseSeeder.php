@@ -23,5 +23,13 @@ class DatabaseSeeder extends Seeder
             'status' => 'Verified',
             'password' => bcrypt('password'),
         ]);
+
+        $this->call([
+            KategoriFasilitasSeeder::class,
+            FasilitasSeeder::class,
+            JaminanSosialSeeder::class,
+            LulusanSeeder::class,
+            CutiSeeder::class,
+        ]);
     }
 }

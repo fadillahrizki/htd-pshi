@@ -29,6 +29,14 @@ Auth::routes();
 Route::get('logout',[HomeController::class,'logout'])->name('logout');
 Route::get('/',[HomeController::class,'index'])->name('home');
 
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::resource('kategori-fasilitas', App\Http\Controllers\Ref\KategoriFasilitasController::class);
+    Route::resource('fasilitas', App\Http\Controllers\Ref\FasilitasController::class);
+    Route::resource('jaminan-sosial', App\Http\Controllers\Ref\JaminanSosialController::class);
+    Route::resource('lulusan', App\Http\Controllers\Ref\LulusanController::class);
+    Route::resource('cuti', App\Http\Controllers\Ref\CutiController::class);
+});
+
 Route::match(['get', 'post'], '/accounts',[AdminController::class,'accounts'])->name('accounts');
 
 Route::prefix('office')->name('office.')->group(function(){

@@ -8,55 +8,55 @@
         'nama_serikat_pekerja_buruh' => old('perangkat_hubungan_industri')['nama_serikat_pekerja_buruh'] ?? ($perangkatHubunganIndustri['nama_serikat_pekerja_buruh'] ?? (session('data_input')['perangkat_hubungan_industri']['nama_serikat_pekerja_buruh'] ?? '' )),
 
         'kondisi_tenaga_kerja' => [
-            'sd' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['sd'] ?? [
+            'sd' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['sd'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['sd'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['sd']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['sd']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['sd']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['sd']['pr'] ?? '' ),
             ],
-            'sltp' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['sltp'] ?? [
+            'sltp' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['sltp'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['sltp'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['sltp']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['sltp']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['sltp']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['sltp']['pr'] ?? '' ),
             ],
-            'sma' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['sma'] ?? [
+            'sma' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['sma'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['sma'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['sma']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['sma']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['sma']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['sma']['pr'] ?? '' ),
             ],
-            'd1' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['d1'] ?? [
+            'd1' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['d1'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['d1'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['d1']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['d1']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['d1']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['d1']['pr'] ?? '' ),
             ],
-            'd2' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['d2'] ?? [
+            'd2' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['d2'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['d2'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['d2']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['d2']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['d2']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['d2']['pr'] ?? '' ),
             ],
-            'd3' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['d3'] ?? [
+            'd3' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['d3'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['d3'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['d3']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['d3']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['d3']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['d3']['pr'] ?? '' ),
             ],
-            'd4' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['d4'] ?? [
+            'd4' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['d4'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['d4'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['d4']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['d4']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['d4']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['d4']['pr'] ?? '' ),
             ],
-            's1' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['s1'] ?? [
+            's1' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['s1'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['s1'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['s1']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['s1']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['s1']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['s1']['pr'] ?? '' ),
             ],
-            's2' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['s2'] ?? [
+            's2' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['s2'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['s2'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['s2']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['s2']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['s2']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['s2']['pr'] ?? '' ),
             ],
-            's3' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['s3'] ?? [
+            's3' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['s3'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['s3'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['s3']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['s3']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['s3']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['s3']['pr'] ?? '' ),
             ],
-            'pkwt' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['pkwt'] ?? [
+            'pkwt' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['pkwt'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['pkwt'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['pkwt']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['pkwt']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['pkwt']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['pkwt']['pr'] ?? '' ),
             ],
-            'pkwtt' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['pkwtt'] ?? [
+            'pkwtt' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['pkwtt'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['pkwtt'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['pkwtt']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['pkwtt']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['pkwtt']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['pkwtt']['pr'] ?? '' ),
             ],
-            'penyandang_disabilitas' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['penyandang_disabilitas'] ?? [
+            'penyandang_disabilitas' => $perangkatHubunganIndustri['kondisi_tenaga_kerja']['penyandang_disabilitas'] ? json_decode($perangkatHubunganIndustri['kondisi_tenaga_kerja']['penyandang_disabilitas'], 1) : [
                 'lk' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['penyandang_disabilitas']['lk'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['penyandang_disabilitas']['lk'] ?? '' ),
                 'pr' => old('perangkat_hubungan_industri')['kondisi_tenaga_kerja']['penyandang_disabilitas']['pr'] ?? (session('data_input')['perangkat_hubungan_industri']['kondisi_tenaga_kerja']['penyandang_disabilitas']['pr'] ?? '' ),
             ],
