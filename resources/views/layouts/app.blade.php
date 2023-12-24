@@ -187,7 +187,7 @@
                     </li>
                     
                     <li class="side-nav-item">
-                        <a href="{{route('admin.accounts')}}" class="side-nav-link">
+                        <a href="{{route('admin.accounts.index')}}" class="side-nav-link">
                             <i class="mdi mdi-account"></i>
                             <!-- <span class="badge bg-success float-end">9+</span> -->
                             <span> Akun Perusahaan </span>
@@ -205,7 +205,7 @@
                     </li>
                     
                     <li class="side-nav-item">
-                        <a href="{{route('office.index')}}" class="side-nav-link">
+                        <a href="{{route('tickets.index')}}" class="side-nav-link">
                             <i class="mdi mdi-ticket-outline"></i>
                             <!-- <span class="badge bg-success float-end">9+</span> -->
                             <span> Pengaduan </span>

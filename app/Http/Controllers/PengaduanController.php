@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class PengaduanController extends Controller
 {
+    public function __construct(private Ticket $model)
+    {
+        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +19,17 @@ class PengaduanController extends Controller
     public function index()
     {
         //
+        if(auth()->user()->role == 'Perusahaan')
+        {
+            $datas = $this->model->where('user_id', auth()->id())->orderBy('id','desc')->get();
+        }
+        else
+        {
+            $datas = $this->model->orderBy('id','desc')->get();
+        }
+
+        return view('tickets.index',compact('datas'));
+
     }
 
     /**
@@ -24,6 +40,8 @@ class PengaduanController extends Controller
     public function create()
     {
         //
+        $ticket = null;
+        return view('tickets.form', compact("ticket"));
     }
 
     /**
@@ -35,6 +53,15 @@ class PengaduanController extends Controller
     public function store(Request $request)
     {
         //
+        $this->model->create([
+            'user_id' => auth()->id(),
+            'subject' => $request->subject,
+            'description' => $request->description,
+            'priority' => $request->priority,
+            'status' => 'OPEN',
+        ]);
+
+        return redirect()->route('tickets.index')->with('message', 'Data berhasil di tambah');
     }
 
     /**
@@ -80,5 +107,7 @@ class PengaduanController extends Controller
     public function destroy($id)
     {
         //
+        $this->model->where('id', $id)->delete();
+        return redirect()->route('tickets.index')->with('message', 'Data berhasil di hapus');
     }
 }

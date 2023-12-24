@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -37,7 +38,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('lulusan', App\Http\Controllers\Ref\LulusanController::class);
     Route::resource('cuti', App\Http\Controllers\Ref\CutiController::class);
     
-    Route::match(['get', 'post'], '/accounts',[AdminController::class,'accounts'])->name('accounts');
+    Route::resource('accounts',AccountController::class);
 });
 
 
@@ -48,9 +49,4 @@ Route::prefix('office')->name('office.')->group(function(){
     Route::post('create', [PerusahaanController::class,'store'])->name('store');
 });
 
-Route::prefix('tickets')->name('tickets.')->group(function(){
-    Route::match(['get', 'post'], '/',[PengaduanController::class,'index'])->name('index');
-    Route::get('create', [PengaduanController::class,'create'])->name('create');
-    Route::get('{id}', [PengaduanController::class,'view'])->name('view');
-    Route::post('create', [PengaduanController::class,'store'])->name('store');
-});
+Route::resource('tickets',PengaduanController::class);
