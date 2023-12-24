@@ -155,11 +155,18 @@ class PerusahaanController extends Controller
 
             try {
                 
-                $user = User::create([
-                    'name' => $request->data_umum['nama_perusahaan'],
-                    'email' => $request->data_umum['email'],
-                    'password' => bcrypt('secret'),
-                ]);
+                if(auth()->user()->role == 'Admin')
+                {
+                    $user = User::create([
+                        'name' => $request->data_umum['nama_perusahaan'],
+                        'email' => $request->data_umum['email'],
+                        'password' => bcrypt('secret'),
+                    ]);
+                }
+                else
+                {
+                    $user = auth()->user();
+                }
 
                 $dataUmum = $user->dataUmums()->create($request->input('data_umum'));
 
