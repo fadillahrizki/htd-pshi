@@ -28,25 +28,29 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('logout',[HomeController::class,'logout'])->name('logout');
-Route::get('/',[HomeController::class,'index'])->name('home');
-
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::resource('kategori-fasilitas', App\Http\Controllers\Ref\KategoriFasilitasController::class);
-    Route::resource('fasilitas', App\Http\Controllers\Ref\FasilitasController::class);
-    Route::resource('jaminan-sosial', App\Http\Controllers\Ref\JaminanSosialController::class);
-    Route::resource('lulusan', App\Http\Controllers\Ref\LulusanController::class);
-    Route::resource('cuti', App\Http\Controllers\Ref\CutiController::class);
+Route::middleware('auth')->group(function(){
+    Route::get('logout',[HomeController::class,'logout'])->name('logout');
+    Route::get('/',[HomeController::class,'index'])->name('home');
     
-    Route::resource('accounts',AccountController::class);
+    Route::prefix('admin')->name('admin.')->group(function(){
+        Route::resource('kategori-fasilitas', App\Http\Controllers\Ref\KategoriFasilitasController::class);
+        Route::resource('fasilitas', App\Http\Controllers\Ref\FasilitasController::class);
+        Route::resource('jaminan-sosial', App\Http\Controllers\Ref\JaminanSosialController::class);
+        Route::resource('lulusan', App\Http\Controllers\Ref\LulusanController::class);
+        Route::resource('cuti', App\Http\Controllers\Ref\CutiController::class);
+        
+        Route::resource('accounts',AccountController::class);
+    });
+    
+    
+    Route::prefix('office')->name('office.')->group(function(){
+        Route::match(['get', 'post'], '/',[PerusahaanController::class,'index'])->name('index');
+        Route::get('create', [PerusahaanController::class,'create'])->name('create');
+        Route::get('{id}', [PerusahaanController::class,'view'])->name('view');
+        Route::post('create', [PerusahaanController::class,'store'])->name('store');
+    });
+    
+    Route::post('tickets/{id}/reply',[PengaduanController::class, 'reply'])->name('tickets.reply');
+    Route::resource('tickets',PengaduanController::class);
 });
 
-
-Route::prefix('office')->name('office.')->group(function(){
-    Route::match(['get', 'post'], '/',[PerusahaanController::class,'index'])->name('index');
-    Route::get('create', [PerusahaanController::class,'create'])->name('create');
-    Route::get('{id}', [PerusahaanController::class,'view'])->name('view');
-    Route::post('create', [PerusahaanController::class,'store'])->name('store');
-});
-
-Route::resource('tickets',PengaduanController::class);

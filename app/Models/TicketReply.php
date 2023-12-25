@@ -9,6 +9,12 @@ class TicketReply extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ticket_id',
+        'author_id',
+        'description'
+    ];
+
     function author()
     {
         return $this->belongsTo(User::class);

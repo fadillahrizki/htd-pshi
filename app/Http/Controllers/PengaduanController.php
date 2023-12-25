@@ -70,9 +70,30 @@ class PengaduanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         //
+        $ticket = $this->model->where('id', $id)->first();
+
+        return view('tickets.show', compact('ticket'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function reply($id, Request $request)
+    {
+        //
+        $ticket = $this->model->where('id', $id)->first();
+        $ticket->replies()->create([
+            'author_id' => auth()->id(),
+            'description' => $request->description
+        ]);
+
+        return redirect()->route('tickets.show')->with('message', 'Komentar berhasil di post');
     }
 
     /**

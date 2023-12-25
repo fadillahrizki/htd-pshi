@@ -66,7 +66,7 @@
                                 <td>{{$data->priority}}</td>
                                 <td>{{$data->status}}</td>
                                 <td>
-                                    <a href="{{route('admin.accounts.show', $data->id)}}" class="btn btn-warning"> 
+                                    <a href="{{route('tickets.show', $data->id)}}" class="btn btn-warning"> 
                                         <i class="mdi mdi-eye"></i>
                                     </a>
                                     @if(auth()->user()->role == 'Perusahaan')
