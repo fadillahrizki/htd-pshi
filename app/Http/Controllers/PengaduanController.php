@@ -84,10 +84,10 @@ class PengaduanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function reply($id, Request $request)
+    public function reply($ticket, Request $request)
     {
         //
-        $ticket = $this->model->where('id', $id)->first();
+        $ticket = $this->model->where('id', $ticket)->first();
         $ticket->replies()->create([
             'author_id' => auth()->id(),
             'description' => $request->description
