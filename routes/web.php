@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function(){
     });
     
     Route::post('tickets/{id}/reply',[PengaduanController::class, 'reply'])->name('tickets.reply');
+    Route::get('tickets/{id}/close',[PengaduanController::class, 'close'])->name('tickets.close');
     Route::resource('tickets',PengaduanController::class);
 });
 

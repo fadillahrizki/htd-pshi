@@ -34,7 +34,14 @@
                         </div>
                     @endif
 
-                    <h2>Detail Pengaduan</h2>
+                    @php
+                    $badge = [
+                        'open' => 'bg-success',
+                        'close' => 'bg-danger',
+                    ];
+                    @endphp
+
+                    <h2>Detail Pengaduan - <span class="badge {{$badge[strtolower($ticket->status)]}}">{{$ticket->status}}</span></h2>
                     <div class="form-group row mb-3">
                         <label for="" class="col-3">Perusahaan / Pengguna</label>
                         <span class="col-9">{{$ticket->user->dataUmum?->nama_perusahaan ?? $ticket->user->name}}</span>
@@ -49,10 +56,16 @@
                         <label for="" class="col-3">Deskripsi</label>
                         <span class="col-9">{!!$ticket->description!!}</span>
                     </div>
+
+                    @if(auth()->user()->role == 'Admin' && $ticket->status == 'OPEN')
+
+                    <a href="{{route('tickets.close', $ticket->id)}}" class="btn btn-danger">Mark as Close</a>
+                    @endif
                 </div> <!-- end card body-->
             </div> <!-- end card -->
         </div><!-- end col-->
     </div> <!-- end row-->
+    
     
     <div class="row">
         <div class="col-12">
@@ -72,16 +85,19 @@
                         </div>
                         @endforeach
                     </div>
-
+                    @if($ticket->status == 'OPEN')
                     <form action="{{route('tickets.reply', $ticket->id)}}" class="mt-3" method="POST">
                         @csrf
                         <textarea name="description" id="" cols="30" rows="10" class="form-control mb-2" placeholder="Ketik balasan disini"></textarea>
                         <button class="btn btn-primary">Submit</button>
                     </form>
+                    @endif
                 </div> <!-- end card body-->
             </div> <!-- end card -->
         </div><!-- end col-->
     </div> <!-- end row-->
+
+    
 
 </div>
 <!-- container -->

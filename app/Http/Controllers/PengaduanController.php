@@ -95,6 +95,16 @@ class PengaduanController extends Controller
 
         return redirect()->route('tickets.show', $id)->with('message', 'Komentar berhasil di post');
     }
+    
+    public function close($id)
+    {
+        //
+        $this->model->where('id', $id)->update([
+            'status' => 'CLOSE'
+        ]);
+
+        return redirect()->route('tickets.show', $id)->with('message', 'Pengaduan berhasil ditutup');
+    }
 
     /**
      * Show the form for editing the specified resource.
