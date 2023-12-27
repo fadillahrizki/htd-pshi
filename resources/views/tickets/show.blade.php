@@ -59,7 +59,7 @@
 
                     @if(auth()->user()->role == 'Admin' && $ticket->status == 'OPEN')
 
-                    <a href="{{route('tickets.close', $ticket->id)}}" class="btn btn-danger">Mark as Close</a>
+                    <a href="{{route('tickets.close', $ticket->id)}}" class="btn btn-danger">Tutup Pengaduan</a>
                     @endif
                 </div> <!-- end card body-->
             </div> <!-- end card -->
