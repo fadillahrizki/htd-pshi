@@ -65,7 +65,7 @@
                         <div class="form-group mb-2">
                             <label for="" class="mb-1">Prioritas</label>
                             <select name="priority" id="" class="form-control">
-                                @foreach(['LOW','MEDIUN','HIGH','URGENT'] as $priority)
+                                @foreach(['LOW','MEDIUM','HIGH','URGENT'] as $priority)
                                 <option>{{$priority}}</option>
                                 @endforeach
                             </select>
