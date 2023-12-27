@@ -84,16 +84,16 @@ class PengaduanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function reply($ticket, Request $request)
+    public function reply($id, Request $request)
     {
         //
-        $ticket = $this->model->where('id', $ticket)->first();
+        $ticket = $this->model->where('id', $id)->first();
         $ticket->replies()->create([
             'author_id' => auth()->id(),
             'description' => $request->description
         ]);
 
-        return redirect()->route('tickets.show')->with('message', 'Komentar berhasil di post');
+        return redirect()->route('tickets.show', $id)->with('message', 'Komentar berhasil di post');
     }
 
     /**
