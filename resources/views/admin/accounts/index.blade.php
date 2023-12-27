@@ -26,12 +26,6 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <a href="{{route('admin.accounts.create')}}" class="btn btn-primary">
-                        <i class="mdi mdi-plus"></i>
-                        <span class="ml-2">Tambah Data</span>
-                    </a>
-                </div>
                 <div class="card-body">
                     @if(session()->get('message'))
                         <div class="alert alert-info">
@@ -56,9 +50,6 @@
                                 <td>
                                     <a href="{{route('admin.accounts.edit', $account->id)}}" class="btn btn-warning"> 
                                         <i class="mdi mdi-pencil"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" onclick="action(event, {{$account->id}}, 'delete')" class="btn btn-danger">
-                                        <i class="mdi mdi-trash-can"></i>
                                     </a>
                                 </td>
                             </tr>
