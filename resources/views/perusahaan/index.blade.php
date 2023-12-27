@@ -26,12 +26,12 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                {{-- <div class="card-header">
+                <div class="card-header">
                     <a href="{{route('office.create')}}" class="btn btn-primary">
                         <i class="mdi mdi-plus"></i>
                         <span class="ml-2">Tambah Data</span>
                     </a>
-                </div> --}}
+                </div>
                 <div class="card-body">
                     @if(session()->get('message'))
                         <div class="alert alert-info">
