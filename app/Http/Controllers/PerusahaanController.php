@@ -82,6 +82,37 @@ class PerusahaanController extends Controller
     public function create() {
         return view('perusahaan.create');
     }
+    
+    public function edit($id) {
+        $dataUmum = DataUmum::where('id',$id)->first();
+        
+        $data = [
+            'dataUmum' => $dataUmum,
+            'dataKetenagakerjaan' => $dataUmum->data_ketenagakerjaan,
+            'selectedFasilitas' => $dataUmum->fasilitas()->pluck('fasilitas_id')->toArray(),
+            'jaminanSosial' => $dataUmum->jaminanSosial->mapWithKeys(function($jamsos){
+                return [$jamsos->jamsos_id => [
+                    'lk' => $jamsos->jumlah_lk,
+                    'pr' => $jamsos->jumlah_pr,
+                ]];
+            })->toArray(),
+            'selectedCuti' => $dataUmum->cuti()->pluck('cuti_id')->toArray(),
+            'kondisiTk' => $dataUmum->kondisiTk->mapWithKeys(function($kondisi){
+                return [$kondisi->lulusan_id => [
+                    'lk' => $kondisi->jumlah_lk,
+                    'pr' => $kondisi->jumlah_pr,
+                ]];
+            })->toArray(),
+            'bpjsKesehatan' => $dataUmum->bpjs_kesehatan,
+            'bpjsKetenagakerjaan' => $dataUmum->bpjs_ketenagakerjaan,
+            'perangkatHubunganIndustri' => $dataUmum->perangkat_hubungan_industri,
+            'kasusPerselisihan' => $dataUmum->kasus_perselisihan,
+        ];
+
+        // return $data;
+
+        return view('perusahaan.edit', $data);
+    }
 
     public function store(Request $request)
     {
@@ -119,10 +150,6 @@ class PerusahaanController extends Controller
                 'bpjs_ketenagakerjaan.no_bpjs_ketenagakerjaan_perusahaan' => 'required',
 
                 'bpjs_ketenagakerjaan.program_jaminan_sosial.*' => 'required|array',
-                // 'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jht.*' => 'required',
-                // 'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkm.*' => 'required',
-                // 'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jp.*' => 'required',
-                // 'bpjs_ketenagakerjaan.program_jaminan_sosial.program_jkp.*' => 'required',
 
                 'perangkat_hubungan_industri.perangkat_hubungan_kerja' => 'required',
                 'perangkat_hubungan_industri.perjanjian_kerja' => 'required',
@@ -131,18 +158,6 @@ class PerusahaanController extends Controller
                 'perangkat_hubungan_industri.nama_serikat_pekerja_buruh' => 'required',
 
                 'perangkat_hubungan_industri.kondisi_tenaga_kerja.*' => 'required|array',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.sltp.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.sma.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.d1.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.d2.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.d3.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.d4.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.s1.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.s2.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.s3.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.pkwt.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.pkwtt.*' => 'required',
-                // 'perangkat_hubungan_industri.kondisi_tenaga_kerja.penyandang_disabilitas.*' => 'required',
 
                 'kasus_perselisihan.pemutusan_hubungan_kerja' => 'required',
                 'kasus_perselisihan.serikat_pekerja_buruh' => 'required',
@@ -160,7 +175,7 @@ class PerusahaanController extends Controller
                     $user = User::create([
                         'name' => $request->data_umum['nama_perusahaan'],
                         'email' => $request->data_umum['email'],
-                        'password' => bcrypt('secret'),
+                        'password' => bcrypt('nakertbalai'),
                     ]);
                 }
                 else
@@ -171,12 +186,12 @@ class PerusahaanController extends Controller
                 $dataUmum = $user->dataUmums()->create($request->input('data_umum'));
 
                 $dataKetenagaKerjaan  = $dataUmum->data_ketenagakerjaan()->create(Arr::except($request->input('data_ketenagakerjaan'), 'sistem_pembayaran_upah'));
-                $sistemPembayaranUpah = $dataKetenagaKerjaan->sistem_pembayaran_upah()->create($request->input('data_ketenagakerjaan')['sistem_pembayaran_upah']);
-                $bpjsKesehatan = $dataUmum->bpjs_kesehatan()->create($request->input('bpjs_kesehatan'));
+                $dataKetenagaKerjaan->sistem_pembayaran_upah()->create($request->input('data_ketenagakerjaan')['sistem_pembayaran_upah']);
+                $dataUmum->bpjs_kesehatan()->create($request->input('bpjs_kesehatan'));
 
                 if($request->kategori)
                 {
-                    foreach($request->kategori as $kategori_id => $fasilitas)
+                    foreach($request->kategori as $fasilitas)
                     {
                         foreach($fasilitas as $fasilitas_id => $value)
                         {
@@ -219,22 +234,11 @@ class PerusahaanController extends Controller
                     ]);
                 }
 
-                $bpjsKetenagakerjaan = $dataUmum->bpjs_ketenagakerjaan()->create(Arr::except($request->input('bpjs_ketenagakerjaan'), 'program_jaminan_sosial'));
+                $dataUmum->bpjs_ketenagakerjaan()->create(Arr::except($request->input('bpjs_ketenagakerjaan'), 'program_jaminan_sosial'));
                 
-                $perangkatHubunganIndustri = $dataUmum->perangkat_hubungan_industri()->create(Arr::except($request->input('perangkat_hubungan_industri'), 'kondisi_tenaga_kerja'));
+                $dataUmum->perangkat_hubungan_industri()->create(Arr::except($request->input('perangkat_hubungan_industri'), 'kondisi_tenaga_kerja'));
                 
-                $kasusPerselisihan = $dataUmum->kasus_perselisihan()->create($request->input('kasus_perselisihan'));
-                
-                // $fasilitasKeselamatanKesehatanKerja = $dataUmum->fasilitas_keselamatan_kesehatan_kerja()->create($request->input('fasilitas_keselamatan_kesehatan_kerja'));
-
-                // $fasilitasKesejahteraan = $dataUmum->fasilitas_kesejahteraan()->create($request->input('fasilitas_kesejahteraan'));
-                
-                // $programJaminanSosial = $bpjsKetenagakerjaan->program_jaminan_sosial()->create($request->input('bpjs_ketenagakerjaan')['program_jaminan_sosial']);
-
-                // $kondisiTenagaKerja = $perangkatHubunganIndustri->kondisi_tenaga_kerja()->create($request->input('perangkat_hubungan_industri')['kondisi_tenaga_kerja']);
-
-                // $pelaksanaanCuti = $dataUmum->pelaksanaan_cuti()->create($request->input('pelaksanaan_cuti'));
-
+                $dataUmum->kasus_perselisihan()->create($request->input('kasus_perselisihan'));
                 
                 DB::commit();
                 
@@ -249,6 +253,80 @@ class PerusahaanController extends Controller
                 return back()->with(['status'=>'failed', 'message' => 'Gagal mengirimkan data!'])->withInput();
             }
 
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        
+        $dataUmum = DataUmum::where('id',$id)->first();
+
+        DB::beginTransaction();
+
+        try {
+
+            $dataUmum->update($request->input('data_umum'));
+
+            $dataUmum->data_ketenagakerjaan()->update(Arr::except($request->input('data_ketenagakerjaan'), 'sistem_pembayaran_upah'));
+            $dataUmum->data_ketenagakerjaan->sistem_pembayaran_upah()->update($request->input('data_ketenagakerjaan')['sistem_pembayaran_upah']);
+            $dataUmum->bpjs_kesehatan()->update($request->input('bpjs_kesehatan'));
+
+            $recFasilitas = [];
+            if($request->kategori)
+            {
+                foreach($request->kategori as $kategori_id => $fasilitas)
+                {
+                    foreach($fasilitas as $fasilitas_id => $value)
+                    {
+                        if($value == 'on')
+                        {
+                            $recFasilitas[] = $fasilitas_id;
+                        }
+                    }
+                }
+            }
+
+            $recJamsos = [];
+            foreach($request->bpjs_ketenagakerjaan['program_jaminan_sosial'] as $jamsos_id => $value)
+            {
+                $recJamsos[$jamsos_id] = [
+                    'jumlah_lk' => $value['lk'],
+                    'jumlah_pr' => $value['pr'],
+                ];
+            }
+                
+            $recKondisiTk = [];
+            foreach($request->input('perangkat_hubungan_industri')['kondisi_tenaga_kerja'] as $lulusan_id => $value)
+            {
+                $recKondisiTk[$lulusan_id] = [
+                    'jumlah_lk'    => $value['lk'],
+                    'jumlah_pr'    => $value['pr'],
+                ];
+            }
+
+            $dataUmum->recFasilitas()->sync($recFasilitas);
+            
+            $dataUmum->recKondisiTk()->sync($recKondisiTk);
+            
+            $dataUmum->recJamsos()->sync($recJamsos);
+
+            $dataUmum->recCuti()->sync(array_keys($request->pelaksanaan_cuti));
+
+            $dataUmum->bpjs_ketenagakerjaan()->update(Arr::except($request->input('bpjs_ketenagakerjaan'), 'program_jaminan_sosial'));
+            
+            $dataUmum->perangkat_hubungan_industri()->update(Arr::except($request->input('perangkat_hubungan_industri'), 'kondisi_tenaga_kerja'));
+            
+            $dataUmum->kasus_perselisihan()->update($request->input('kasus_perselisihan'));
+            
+            DB::commit();
+            
+            return back()->with(['status'=>'success', 'message' => 'Data Berhasil di update!']);
+        } catch(\Exception $e) {
+            DB::rollback();
+
+            throw $e;
+
+            return back()->with(['status'=>'failed', 'message' => 'Gagal mengirimkan data!'])->withInput();
         }
     }
 

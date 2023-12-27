@@ -66,4 +66,24 @@ class DataUmum extends Model
     {
         return $this->hasMany(Cuti::class, 'data_umum_id');
     }
+
+    function recCuti()
+    {
+        return $this->belongsToMany(RefCuti::class, 'cutis', 'data_umum_id','cuti_id');
+    }
+    
+    function recFasilitas()
+    {
+        return $this->belongsToMany(RefFasilitas::class, 'fasilitas', 'data_umum_id','fasilitas_id');
+    }
+    
+    function recKondisiTk()
+    {
+        return $this->belongsToMany(RefLulusan::class, 'kondisi_tks', 'data_umum_id','lulusan_id');
+    }
+    
+    function recJamsos()
+    {
+        return $this->belongsToMany(RefJaminanSosial::class, 'jaminan_sosials', 'data_umum_id','jamsos_id');
+    }
 }

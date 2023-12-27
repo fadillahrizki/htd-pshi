@@ -47,7 +47,6 @@
                                 <th>No Telepon</th>
                                 <th>Email Perusahaan</th>
                                 <th>Jenis Usaha</th>
-                                <th>Status</th>
                                 <th data-orderable="false">Action</th>
                             </tr>
                         </thead>
@@ -61,14 +60,15 @@
                                 <td>{{$dt->email}}</td>
                                 <td>{{$dt->jenis_usaha}}</td>
                                 <td>
-                                    <span class="badge {{($dt->status == 'Waiting' ? 'bg-info' : ($dt->status == 'Verified' ? 'bg-success' : 'bg-danger'))}}">{{$dt->status}}</span>
-                                </td>
-                                <td>
                                     <a href="{{route('office.view', $dt)}}" class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Lihat Detail"> 
                                         <i class="mdi mdi-eye"></i>
                                     </a>
+                                    
+                                    <a href="{{route('office.edit', $dt->id)}}" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"> 
+                                        <i class="mdi mdi-pencil"></i>
+                                    </a>
 
-                                    @if(auth()->user()->role == 'Admin')
+                                    {{-- @if(auth()->user()->role == 'Admin')
 
                                         @if($dt->status == 'Waiting')
                                             <a href="#" onclick="action(event, {{$dt->id}}, 'verify')" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Terima"> 
@@ -79,10 +79,10 @@
                                             </a>
                                         @endif
 
-                                        <a href="#" onclick="action(event, {{$dt->id}}, 'delete')" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hapus">
-                                            <i class="mdi mdi-delete"></i>
-                                        </a>
-                                    @endif
+                                    @endif --}}
+                                    <a href="#" onclick="action(event, {{$dt->id}}, 'delete')" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hapus">
+                                        <i class="mdi mdi-delete"></i>
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach

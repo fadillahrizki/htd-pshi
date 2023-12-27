@@ -46,8 +46,10 @@ Route::middleware('auth')->group(function(){
     Route::prefix('office')->name('office.')->group(function(){
         Route::match(['get', 'post'], '/',[PerusahaanController::class,'index'])->name('index');
         Route::get('create', [PerusahaanController::class,'create'])->name('create');
+        Route::get('edit/{id}', [PerusahaanController::class,'edit'])->name('edit');
         Route::get('{id}', [PerusahaanController::class,'view'])->name('view');
         Route::post('create', [PerusahaanController::class,'store'])->name('store');
+        Route::put('update/{id}', [PerusahaanController::class,'update'])->name('update');
     });
     
     Route::post('tickets/{id}/reply',[PengaduanController::class, 'reply'])->name('tickets.reply');

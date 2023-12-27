@@ -27,7 +27,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                @if(request()->routeIs('office.view') && auth()->user()->role == 'Admin')
+                {{-- @if(request()->routeIs('office.view') && auth()->user()->role == 'Admin')
 
                     <div class="card-header">
 
@@ -49,7 +49,7 @@
                         
                     </div>
 
-                @endif
+                @endif --}}
                 <div class="card-body">
 
                     <div id="basicwizard">

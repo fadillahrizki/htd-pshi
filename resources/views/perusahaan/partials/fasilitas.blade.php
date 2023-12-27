@@ -9,8 +9,14 @@
                     <input type="checkbox" 
                             id="kategori_{{$kategori->id}}_{{$index}}" 
                             name="kategori[{{$kategori->id}}][{{$fasilitas->id}}]" class="form-check-input"
+                            @if(request()->routeIs('office.edit'))
+                            @if(in_array($fasilitas->id, $selectedFasilitas))
+                            checked=""
+                            @endif
+                            @else
                             @if(session('data_input') && isset(session('data_input')['kategori']) && in_array($fasilitas->id, array_keys(session('data_input')['kategori'][$kategori->id])))
                             checked=""
+                            @endif
                             @endif
                             >
                     <label class="form-check-label" for="kategori_{{$kategori->id}}_{{$index}}">{{$fasilitas->nama}}</label>
