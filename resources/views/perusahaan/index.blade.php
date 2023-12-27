@@ -26,12 +26,14 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                @if(auth()->user()->role == 'Admin')
                 <div class="card-header">
                     <a href="{{route('office.create')}}" class="btn btn-primary">
                         <i class="mdi mdi-plus"></i>
                         <span class="ml-2">Tambah Data</span>
                     </a>
                 </div>
+                @endif
                 <div class="card-body">
                     @if(session()->get('message'))
                         <div class="alert alert-info">
@@ -68,21 +70,21 @@
                                         <i class="mdi mdi-pencil"></i>
                                     </a>
 
-                                    {{-- @if(auth()->user()->role == 'Admin')
+                                    @if(auth()->user()->role == 'Admin')
 
-                                        @if($dt->status == 'Waiting')
+                                        {{-- @if($dt->status == 'Waiting')
                                             <a href="#" onclick="action(event, {{$dt->id}}, 'verify')" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Terima"> 
                                                 <i class="mdi mdi-check"></i>
                                             </a>
                                             <a href="#" onclick="action(event, {{$dt->id}}, 'reject')" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tolak">
                                                 <i class="mdi mdi-cancel"></i>
                                             </a>
-                                        @endif
+                                        @endif --}}
 
-                                    @endif --}}
-                                    {{-- <a href="#" onclick="action(event, {{$dt->id}}, 'delete')" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hapus">
-                                        <i class="mdi mdi-delete"></i>
-                                    </a> --}}
+                                        <a href="#" onclick="action(event, {{$dt->id}}, 'delete')" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hapus">
+                                            <i class="mdi mdi-delete"></i>
+                                        </a>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
