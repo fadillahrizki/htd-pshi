@@ -75,4 +75,26 @@ class HomeController extends Controller
         Auth::logout();
         return view('auth.logout');
     }
+
+    public function profile(Request $request)
+    {
+        $user = auth()->user();
+        if($request->isMethod('POST'))
+        {
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+            ]);
+
+            if($request->password)
+            {
+                $user->update([
+                    'password' => bcrypt($request->password)
+                ]);
+            }
+
+            return redirect()->route('profile')->with('message','Profile berhasil di perbaharui');
+        }
+        return view('profile', compact('user'));
+    }
 }

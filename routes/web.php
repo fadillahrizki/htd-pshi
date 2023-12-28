@@ -29,6 +29,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware('auth')->group(function(){
+    Route::match(['get','post'], 'profile',[HomeController::class,'profile'])->name('profile');
     Route::get('logout',[HomeController::class,'logout'])->name('logout');
     Route::get('/',[HomeController::class,'index'])->name('home');
     

@@ -99,6 +99,10 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated profile-dropdown">
                             <!-- item-->
+                            <a href="{{route('profile')}}" class="dropdown-item">
+                                <i class="mdi mdi-account fs-18 align-middle me-1"></i>
+                                <span>Profile</span>
+                            </a>
                             <a href="{{route('logout')}}" class="dropdown-item">
                                 <i class="ri-logout-box-line fs-18 align-middle me-1"></i>
                                 <span>Logout</span>
