@@ -441,4 +441,24 @@ class PerusahaanController extends Controller
 
         }
     }
+
+    public function print(Request $request) {
+
+        $data = new DataUmum;
+
+        if($request->filter)
+        {
+            if(isset($request->filter['perjanjian_hubungan_kerja']) && !empty($request->filter['perjanjian_hubungan_kerja']))
+            {
+                $perjanjian_hubungan_kerja = $request->filter['perjanjian_hubungan_kerja'];
+                $data = $data->whereHas('perangkat_hubungan_industri', function($query) use ($perjanjian_hubungan_kerja){
+                    $query->where('perangkat_hubungan_kerja', $perjanjian_hubungan_kerja);
+                });
+            }
+        }
+
+        $data = $data->get();
+
+        return view('perusahaan.print', ['data' => $data]);
+    }
 }

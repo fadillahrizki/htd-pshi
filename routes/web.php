@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function(){
         Route::match(['get', 'post'], '/',[PerusahaanController::class,'index'])->name('index');
         Route::get('create', [PerusahaanController::class,'create'])->name('create');
         Route::get('edit/{id}', [PerusahaanController::class,'edit'])->name('edit');
+        Route::get('print', [PerusahaanController::class,'print'])->name('print');
         Route::get('{id}', [PerusahaanController::class,'view'])->name('view');
         Route::post('create', [PerusahaanController::class,'store'])->name('store');
         Route::put('update/{id}', [PerusahaanController::class,'update'])->name('update');

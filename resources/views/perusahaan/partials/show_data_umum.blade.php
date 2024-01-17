@@ -66,5 +66,11 @@
                 {{$dataUmum->status_kepemilikan}}
             </div>
         </div>
+        <div class="row mb-3">
+            <label class="col-md-3 col-form-label" for="data_umum[status_kepemilikan]">Masa Berlaku</label>
+            <div class="col-md-9">
+                {{$dataUmum->tanggal_awal . ' s/d ' . $dataUmum->tanggal_akhir}}
+            </div>
+        </div>
     </div> <!-- end col -->
 </div> <!-- end row -->

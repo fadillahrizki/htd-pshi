@@ -27,6 +27,14 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    
+                    <a href="" class="btn btn-success">
+                        <i class="mdi mdi-printer"></i>
+                        <span class="ml-2">Cetak</span>
+                    </a>
+                    
+                </div>
                 {{-- @if(request()->routeIs('office.view') && auth()->user()->role == 'Admin')
 
                     <div class="card-header">

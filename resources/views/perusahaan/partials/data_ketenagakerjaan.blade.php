@@ -20,7 +20,7 @@
         <div class="row mb-3">
             <label class="col-md-3 col-form-label" for="data_ketenagakerjaan[waktu_kerja]">Waktu Kerja</label>
             <div class="col-md-9">
-                <input type="time" id="data_ketenagakerjaan[waktu_kerja]" value="{{ $data_ketenagakerjaan['waktu_kerja'] }}" name="data_ketenagakerjaan[waktu_kerja]" class="form-control @error('data_ketenagakerjaan.waktu_kerja') is-invalid @enderror">
+                <input type="text" id="data_ketenagakerjaan[waktu_kerja]" value="{{ $data_ketenagakerjaan['waktu_kerja'] }}" name="data_ketenagakerjaan[waktu_kerja]" class="form-control @error('data_ketenagakerjaan.waktu_kerja') is-invalid @enderror">
             </div>
         </div>
         <div class="row mb-3">

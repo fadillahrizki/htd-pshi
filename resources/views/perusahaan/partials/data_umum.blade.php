@@ -12,6 +12,8 @@
         'no_akte_pendirian' => old('data_umum')['no_akte_pendirian'] ?? ($dataUmum['no_akte_pendirian'] ?? (session('data_input')['data_umum']['no_akte_pendirian'] ?? '' )),
         'status_perusahaan' => old('data_umum')['status_perusahaan'] ?? ($dataUmum['status_perusahaan'] ?? (session('data_input')['data_umum']['status_perusahaan'] ?? '' )),
         'status_kepemilikan' => old('data_umum')['status_kepemilikan'] ?? ($dataUmum['status_kepemilikan'] ?? (session('data_input')['data_umum']['status_kepemilikan'] ?? '' )),
+        'tanggal_awal' => old('data_umum')['tanggal_awal'] ?? ($dataUmum['tanggal_awal'] ?? (session('data_input')['data_umum']['tanggal_awal'] ?? '' )),
+        'tanggal_akhir' => old('data_umum')['tanggal_akhir'] ?? ($dataUmum['tanggal_akhir'] ?? (session('data_input')['data_umum']['tanggal_akhir'] ?? '' )),
     ];
 
 @endphp
@@ -82,6 +84,21 @@
             <label class="col-md-3 col-form-label" for="data_umum[status_kepemilikan]">Status Kepemilikan</label>
             <div class="col-md-9">
                 <input type="text" id="data_umum[status_kepemilikan]" value="{{ $data_umum['status_kepemilikan'] }}" name="data_umum[status_kepemilikan]" class="form-control @error('data_umum.status_kepemilikan') is-invalid @enderror">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-md-3 col-form-label" for="">Masa Berlaku</label>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="mb-2" for="">Tanggal Awal</label>
+                        <input type="date" id="data_umum[tanggal_awal]" value="{{ $data_umum['tanggal_awal'] }}" name="data_umum[tanggal_awal]" class="form-control @error('data_umum.tanggal_awal') is-invalid @enderror">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="mb-2" for="">Tanggal Akhir</label>
+                        <input type="date" id="data_umum[tanggal_akhir]" value="{{ $data_umum['tanggal_akhir'] }}" name="data_umum[tanggal_akhir]" class="form-control @error('data_umum.tanggal_akhir') is-invalid @enderror">
+                    </div>
+                </div>
             </div>
         </div>
     </div> <!-- end col -->

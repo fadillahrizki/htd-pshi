@@ -4,6 +4,32 @@
 
 @section('content')
 
+<div class="modal fade" id="bs-example-modal-lg" tabindex="-1" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myLargeModalLabel">Cetak Data Perusahaan</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('office.print')}}">
+                    <div class="form-group mb-2">
+                        <label for="">Perjanjian Hubungan Kerja</label>
+                        <select name="filter[perjanjian_hubungan_kerja]" id="" class="form-control">
+                            <option value="">Semua</option>
+                            <option value="Peraturan Perusahaan">Peraturan Perusahaan (PP)</option>
+                            <option value="Perjanjian Kerja Bersama">Perjanjian Kerja Bersama (PKB)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Cetak</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
 <!-- Start Content-->
 <div class="container-fluid">
 
@@ -31,6 +57,11 @@
                     <a href="{{route('office.create')}}" class="btn btn-primary">
                         <i class="mdi mdi-plus"></i>
                         <span class="ml-2">Tambah Data</span>
+                    </a>
+
+                    <a href="javascript:void(0)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#bs-example-modal-lg">
+                        <i class="mdi mdi-printer"></i>
+                        <span class="ml-2">Cetak</span>
                     </a>
                 </div>
                 @endif
