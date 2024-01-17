@@ -29,7 +29,7 @@
             <div class="card">
                 <div class="card-header">
                     
-                    <a href="" class="btn btn-success">
+                    <a href="{{route('office.print-detail', request()->route('id'))}}" class="btn btn-success">
                         <i class="mdi mdi-printer"></i>
                         <span class="ml-2">Cetak</span>
                     </a>

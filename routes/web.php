@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function(){
         Route::get('edit/{id}', [PerusahaanController::class,'edit'])->name('edit');
         Route::get('print', [PerusahaanController::class,'print'])->name('print');
         Route::get('{id}', [PerusahaanController::class,'view'])->name('view');
+        Route::get('{id}/print', [PerusahaanController::class,'printDetail'])->name('print-detail');
         Route::post('create', [PerusahaanController::class,'store'])->name('store');
         Route::put('update/{id}', [PerusahaanController::class,'update'])->name('update');
     });

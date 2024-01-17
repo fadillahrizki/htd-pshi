@@ -61,6 +61,21 @@ class PerusahaanController extends Controller
         return view('perusahaan.show', compact('dataUmum'));
     }
 
+    public function printDetail($id) {
+        $dataUmum = DataUmum::find($id);
+
+        $dataUmum->data_ketenagakerjaan;
+        $dataUmum->fasilitas;
+        $dataUmum->bpjs_kesehatan;
+        $dataUmum->bpjs_ketenagakerjaan;
+        $dataUmum->perangkat_hubungan_industri;
+        $dataUmum->kasus_perselisihan;
+        $dataUmum->jaminanSosial;
+        $dataUmum->cuti;
+
+        return view('perusahaan.print-detail', compact('dataUmum'));
+    }
+
     public function oldview($id) {
         $dataUmum = DataUmum::find($id);
         
