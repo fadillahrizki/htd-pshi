@@ -55,6 +55,9 @@
                                 <td>{{$index+1}}</td>
                                 <td>{{$data->nama}}</td>
                                 <td>
+                                    <a href="{{route('admin.cuti.edit', $data->id)}}" class="btn btn-info" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
+                                        <i class="mdi mdi-pencil"></i>
+                                    </a>
                                     <a href="#" onclick="action(event, {{$data->id}}, 'delete')" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Hapus">
                                         <i class="mdi mdi-delete"></i>
                                     </a>

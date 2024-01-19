@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tambah Data Cuti')
+@section('title', 'Edit Data Fasilitas')
 
 @section('content')
 
@@ -14,11 +14,11 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dinas Ketenagakerjaan Kota Tanjung Balai</a></li>
-                        <li class="breadcrumb-item"><a href="{{route('admin.cuti.index')}}">Data Cuti</a></li>
-                        <li class="breadcrumb-item active">Tambah</li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.kategori-fasilitas.index')}}">Data Fasilitas</a></li>
+                        <li class="breadcrumb-item active">Edit</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Tambah Data Cuti</h4>
+                <h4 class="page-title">Edit Data Fasilitas</h4>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{route('admin.cuti.index')}}" class="btn btn-warning">
+                    <a href="{{route('admin.fasilitas.index')}}" class="btn btn-warning">
                         <i class="mdi mdi-arrow-left"></i>
                         <span class="ml-2">Kembali</span>
                     </a>
@@ -41,12 +41,25 @@
                         </div>
                     @endif
 
-                    <form action="{{route('admin.cuti.store')}}" method="POST">
+                    <form action="{{route('admin.fasilitas.update', $model->id)}}" method="POST">
                         @csrf
+                        @method('PUT')
+                        <div class="row mb-3">
+                            <label class="col-md-3 col-form-label">Kategori</label>
+                            <div class="col-md-9 m-auto">
+                                <select name="kategori" id="kategori" class="form-control">
+                                    <option value="">Pilih</option>
+                                    @foreach(\App\Models\RefKategoriFasilitas::get() as $kategori)
+                                    <option value="{{$kategori->id}}" {{$model->kategori_id == $kategori->id ? 'selected=""' : ''}}>{{$kategori->nama}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="row mb-3">
                             <label class="col-md-3 col-form-label">Nama</label>
                             <div class="col-md-9 m-auto">
-                                <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama">
+                                <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama" value="{{$model->nama}}">
                             </div>
                         </div>
 

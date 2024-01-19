@@ -78,6 +78,8 @@ class FasilitasController extends Controller
     public function edit($id)
     {
         //
+        $model = $this->model->where('id', $id)->firstOrFail();
+        return view('admin.ref.fasilitas.edit', compact('model'));
     }
 
     /**
@@ -90,6 +92,17 @@ class FasilitasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nama' => 'required',
+            'kategori' => 'required'
+        ]);
+
+        $this->model->where('id', $id)->firstOrFail()->update([
+            'nama' => $request->nama,
+            'kategori_id' => $request->kategori
+        ]);
+
+        return redirect()->route('admin.fasilitas.index')->with('message', 'Data berhasil di update');
     }
 
     /**

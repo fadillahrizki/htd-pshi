@@ -76,6 +76,8 @@ class CutiController extends Controller
     public function edit($id)
     {
         //
+        $model = $this->model->where('id', $id)->firstOrFail();
+        return view('admin.ref.cuti.edit', compact('model'));
     }
 
     /**
@@ -88,6 +90,15 @@ class CutiController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nama' => 'required'
+        ]);
+
+        $this->model->where('id', $id)->firstOrFail()->update([
+            'nama' => $request->nama
+        ]);
+
+        return redirect()->route('admin.cuti.index')->with('message', 'Data berhasil di update');
     }
 
     /**
