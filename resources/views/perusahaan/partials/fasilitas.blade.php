@@ -14,7 +14,7 @@
                             checked=""
                             @endif
                             @else
-                            @if(session('data_input') && isset(session('data_input')['kategori']) && in_array($fasilitas->id, array_keys(session('data_input')['kategori'][$kategori->id])))
+                            @if(session('data_input') && isset(session('data_input')['kategori']) && isset(session('data_input')['kategori'][$kategori->id]) && in_array($fasilitas->id, array_keys(session('data_input')['kategori'][$kategori->id])))
                             checked=""
                             @endif
                             @endif
