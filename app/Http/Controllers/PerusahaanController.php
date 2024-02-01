@@ -25,7 +25,13 @@ class PerusahaanController extends Controller
             $dataUmum = DataUmum::find($request->input('id'));
 
             if($request->input('type') == 'delete') {
-                $dataUmum->delete();
+                try {
+                    //code...
+                    User::where('id', $dataUmum->user_id)->delete();
+                    $dataUmum->delete();
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
             } else {
                 if($request->input('type') == 'verify') {
                     $dataUmum->status = 'Verified';
